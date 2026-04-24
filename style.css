@@ -10,6 +10,10 @@ body {
     font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
 }
 
+body.auth-pending {
+    visibility: hidden;
+}
+
 a {
     color: inherit;
 }
@@ -65,6 +69,16 @@ a {
 .hero {
     max-width: 720px;
     padding: 28px 0 64px;
+}
+
+.hero-card {
+    max-width: 100%;
+    padding: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 24px;
+    background: rgba(26, 11, 9, 0.34);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(10px);
 }
 
 .eyebrow {
@@ -131,6 +145,10 @@ h3 {
     box-shadow: 0 24px 60px rgba(69, 38, 28, 0.12);
 }
 
+.intro-panel {
+    margin-top: 24px;
+}
+
 .events-table {
     width: 100%;
     border-collapse: collapse;
@@ -186,7 +204,8 @@ input:focus {
     border-color: #bb3227;
 }
 
-button {
+button,
+.button-link {
     border: 0;
     border-radius: 999px;
     padding: 14px 20px;
@@ -194,6 +213,10 @@ button {
     color: #fff7ef;
     font: inherit;
     font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
 }
 
@@ -228,10 +251,71 @@ button {
     margin-bottom: 24px;
 }
 
+.member-header--hero {
+    align-items: flex-start;
+}
+
+.page-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.badge {
+    margin: 0;
+    padding: 12px 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff9f1;
+    font-weight: 700;
+}
+
 .member-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
+}
+
+.quick-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.quick-link {
+    display: block;
+    padding: 22px;
+    border-radius: 18px;
+    background: #fff7ea;
+    border: 1px solid rgba(90, 52, 40, 0.12);
+    text-decoration: none;
+    color: #2a1913;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quick-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px rgba(69, 38, 28, 0.12);
+}
+
+.quick-link h3 {
+    margin-top: 8px;
+}
+
+.quick-link p:last-child {
+    margin: 12px 0 0;
+    line-height: 1.6;
+}
+
+.link-kicker {
+    margin: 0;
+    color: #bb3227;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
 }
 
 .member-card {
@@ -294,6 +378,123 @@ button {
     color: #fff9f1;
 }
 
+.folder-grid {
+    display: grid;
+    gap: 18px;
+}
+
+.folder-card {
+    border: 1px solid rgba(90, 52, 40, 0.12);
+    border-radius: 18px;
+    background: #fff7ea;
+    overflow: hidden;
+}
+
+.folder-card summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 20px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.folder-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.folder-card[open] summary {
+    border-bottom: 1px solid rgba(90, 52, 40, 0.12);
+}
+
+.folder-card .panel-copy {
+    margin: 0;
+    padding: 18px 20px 0;
+}
+
+.folder-meta {
+    white-space: nowrap;
+    color: #6d4334;
+    font-weight: 700;
+}
+
+.thumb-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    padding: 20px;
+}
+
+.thumb-card {
+    margin: 0;
+    min-height: 140px;
+    padding: 16px;
+    display: flex;
+    align-items: flex-end;
+    border-radius: 16px;
+    color: #fffdf8;
+    font-weight: 700;
+    background: linear-gradient(135deg, #824126, #d88d2f);
+}
+
+.thumb-card span {
+    display: inline-block;
+    padding: 8px 10px;
+    border-radius: 12px;
+    background: rgba(15, 7, 5, 0.36);
+}
+
+.thumb-card--gold {
+    background: linear-gradient(135deg, #b45b12, #d8a83a);
+}
+
+.thumb-card--ember {
+    background: linear-gradient(135deg, #7d1f1f, #ca5f39);
+}
+
+.thumb-card--forest {
+    background: linear-gradient(135deg, #35553d, #6f9258);
+}
+
+.thumb-card--berry {
+    background: linear-gradient(135deg, #6f244b, #bf4d67);
+}
+
+.placeholder-note {
+    margin-bottom: 20px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: rgba(187, 50, 39, 0.08);
+    color: #6d4334;
+    font-weight: 600;
+}
+
+.meta-list {
+    display: grid;
+    gap: 16px;
+    margin: 0;
+}
+
+.meta-list div {
+    padding: 18px;
+    border: 1px solid rgba(90, 52, 40, 0.12);
+    border-radius: 16px;
+    background: #fff7ea;
+}
+
+.meta-list dt {
+    margin-bottom: 8px;
+    color: #6d4334;
+    font-weight: 700;
+}
+
+.meta-list dd {
+    margin: 0;
+    color: #2a1913;
+    line-height: 1.6;
+}
+
 @media (max-width: 900px) {
     .events-table {
         display: block;
@@ -301,6 +502,11 @@ button {
     }
 
     .member-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-grid,
+    .thumb-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -343,5 +549,60 @@ button {
         min-width: 0;
         flex: 1 1 calc(50% - 10px);
         padding: 12px 14px;
+    }
+
+    .hero-card {
+        padding: 24px;
+    }
+
+    .page-actions {
+        justify-content: flex-start;
+    }
+
+    .badge,
+    button,
+    .button-link {
+        width: 100%;
+    }
+
+    .events-table,
+    .events-table tbody,
+    .events-table tr,
+    .events-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .events-table thead {
+        display: none;
+    }
+
+    .events-table tr {
+        margin-bottom: 14px;
+        padding: 16px;
+        border-radius: 16px;
+        background: #fff7ea;
+        border: 1px solid rgba(90, 52, 40, 0.12);
+    }
+
+    .events-table td {
+        padding: 8px 0;
+        border: 0;
+    }
+
+    .events-table td::before {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 4px;
+        color: #6d4334;
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .folder-card summary {
+        align-items: flex-start;
+        flex-direction: column;
     }
 }

@@ -1,22 +1,21 @@
 const adminUser = {
-    username: ["ad", "min"].join(""),
-    password: ["Ezglonker", "2026!"].join(""),
+    username: "admin",
+    password: "1234",
     displayName: "Admin"
 };
 
 const sessionKey = "erzglonkerSession";
-const currentPage = window.location.pathname.split("/").pop() || "mitglieder.html";
-const isLoginPage = currentPage === "mitglieder.html" || currentPage === "login.html";
-const isInternalPage = currentPage === "intern.html";
+const currentPage = window.location.pathname.split("/").pop() || "index.html";
+const loginPages = new Set(["mitglieder.html", "login.html"]);
+const protectedPages = new Set(["index.html", "intern.html", "bildergalerie.html"]);
 
-const loginBox = document.getElementById("loginBox");
-const memberName = document.getElementById("memberName");
 const loginForm = document.getElementById("login-form");
 const loginMessage = document.getElementById("loginMessage");
 const logoutButton = document.getElementById("logoutButton");
+const memberName = document.getElementById("memberName");
 
-const redirectToInternal = () => {
-    window.location.href = "intern.html";
+const redirectToHome = () => {
+    window.location.href = "index.html";
 };
 
 const redirectToLogin = () => {
@@ -29,11 +28,11 @@ if (memberName) {
     memberName.textContent = adminUser.displayName;
 }
 
-if (isAuthenticated && isLoginPage) {
-    redirectToInternal();
+if (isAuthenticated && loginPages.has(currentPage)) {
+    redirectToHome();
 }
 
-if (!isAuthenticated && isInternalPage) {
+if (!isAuthenticated && protectedPages.has(currentPage)) {
     redirectToLogin();
 }
 
@@ -46,7 +45,7 @@ if (loginForm) {
 
         if (username === adminUser.username && password === adminUser.password) {
             sessionStorage.setItem(sessionKey, adminUser.username);
-            redirectToInternal();
+            redirectToHome();
             return;
         }
 
@@ -62,3 +61,5 @@ if (logoutButton) {
         redirectToLogin();
     });
 }
+
+document.body.classList.remove("auth-pending");

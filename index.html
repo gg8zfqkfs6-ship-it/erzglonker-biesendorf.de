@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Narrenverein Ezglonker Biesendorf</title>
+    <title>Mitglieder-Start | Narrenverein Ezglonker Biesendorf</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="page-home">
+<body class="page-home auth-pending">
     <div class="background-stage" aria-hidden="true">
         <div class="background-layer is-visible"></div>
         <div class="background-layer"></div>
@@ -17,23 +17,69 @@
     </div>
 
     <main class="page-shell">
-        <section class="hero">
-            <p class="eyebrow">Fasnet mit Herz und Tradition</p>
-            <h1>Narrenverein<br>Ezglonker Biesendorf</h1>
+        <section class="hero hero-card">
+            <div class="member-header member-header--hero">
+                <div>
+                    <p class="eyebrow">Geschuetzter Startbereich</p>
+                    <h1>Narrenverein<br>Ezglonker Biesendorf</h1>
+                </div>
+                <div class="page-actions">
+                    <p class="badge">Angemeldet als <strong id="memberName">Admin</strong></p>
+                    <button type="button" class="secondary-button" id="logoutButton">Logout</button>
+                </div>
+            </div>
             <p class="lead">
-                Willkommen auf der Homepage unseres Vereins. Hier findest du unsere
-                aktuellen Termine, Hinweise zu Narrentreffen und den geschuetzten
-                Mitgliederbereich.
+                Willkommen im internen Bereich des Vereins. Von hier aus erreichst du
+                die internen Termine, die Bildergalerie und alle wichtigen Hinweise
+                fuer die Kampagne bequem auch auf dem Handy.
             </p>
+        </section>
+
+        <section class="panel intro-panel">
+            <h2>Direkt zu den Bereichen</h2>
+            <p class="panel-copy">
+                Nach dem Login stehen dir zwei Unterseiten fuer die interne Arbeit
+                zur Verfuegung: Termine und Bildergalerie. Oeffentliche Termine und
+                das Impressum bleiben ebenfalls schnell erreichbar.
+            </p>
+
+            <div class="quick-grid">
+                <a class="quick-link" href="intern.html">
+                    <p class="link-kicker">Unterseite 1</p>
+                    <h3>Interne Termine</h3>
+                    <p>Vorstand, Aufbau, Proben und vereinsinterne Absprachen auf einen Blick.</p>
+                </a>
+
+                <a class="quick-link" href="bildergalerie.html">
+                    <p class="link-kicker">Unterseite 2</p>
+                    <h3>Bildergalerie</h3>
+                    <p>Fotos sind in klar benannten Ordnern sortiert und koennen spaeter erweitert werden.</p>
+                </a>
+
+                <a class="quick-link" href="veranstaltungen.html">
+                    <p class="link-kicker">Oeffentlich</p>
+                    <h3>Veranstaltungen</h3>
+                    <p>Alle anstehenden Termine fuer Besucherinnen, Besucher und Vereinsfreunde.</p>
+                </a>
+
+                <a class="quick-link" href="impressum.html">
+                    <p class="link-kicker">Pflichtseite</p>
+                    <h3>Impressum</h3>
+                    <p>Die rechtlichen Angaben liegen auf einer eigenen Seite und koennen gepflegt werden.</p>
+                </a>
+            </div>
         </section>
     </main>
 
     <nav class="navbar" aria-label="Hauptnavigation">
         <a class="active" href="index.html">Startseite</a>
+        <a href="intern.html">Interne Termine</a>
+        <a href="bildergalerie.html">Bildergalerie</a>
         <a href="veranstaltungen.html">Veranstaltungen</a>
-        <a href="mitglieder.html">Mitglieder-Zugang</a>
+        <a href="impressum.html">Impressum</a>
     </nav>
 
     <script src="script.js"></script>
+    <script src="login.js"></script>
 </body>
 </html>
