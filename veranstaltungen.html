@@ -3,24 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veranstaltungen | Narrenverein Ezglonker Biesendorf</title>
+    <title>Veranstaltungen und Termine | Narrenverein Ezglonker Biesendorf</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="page-inner auth-pending">
+<body class="page-inner">
     <main class="page-shell">
         <section class="page-header">
             <p class="eyebrow">Termine im Vereinsjahr</p>
-            <h1>Veranstaltungen</h1>
+            <h1>Veranstaltungen und Termine</h1>
             <p class="lead dark">
-                Alle wichtigen Narrentreffen und Vereinsmomente auf einen Blick.
-                Die Tabelle ist fuer Mobilgeraete auf eine gut lesbare Kartenansicht umgestellt.
+                Oeffentliche Veranstaltungen sind fuer alle sichtbar. Die internen
+                Termine erscheinen auf derselben Seite zusaetzlich, sobald du
+                angemeldet bist.
             </p>
         </section>
 
         <section class="panel">
+            <h2>Oeffentliche Veranstaltungen</h2>
+            <p class="panel-copy">
+                Alle wichtigen Narrentreffen und Vereinsmomente auf einen Blick.
+                Die Tabelle ist fuer Mobilgeraete auf eine gut lesbare Kartenansicht umgestellt.
+            </p>
+
             <table class="events-table">
                 <thead>
                     <tr>
@@ -63,11 +70,99 @@
                 </tbody>
             </table>
         </section>
+
+        <section class="panel member-panel is-hidden" id="interne-termine" data-auth-only>
+            <div class="member-header">
+                <div>
+                    <p class="eyebrow dark-eyebrow">Angemeldet als</p>
+                    <h2 id="memberName">Admin</h2>
+                </div>
+                <button type="button" class="secondary-button" id="logoutButton">Logout</button>
+            </div>
+
+            <h2>Interne Termine</h2>
+            <p class="panel-copy">
+                Dieser Block wird nur nach erfolgreichem Login eingeblendet und enthaelt
+                vereinsinterne Termine, Proben und organisatorische Hinweise.
+            </p>
+
+            <table class="events-table">
+                <thead>
+                    <tr>
+                        <th>Datum</th>
+                        <th>Interner Termin</th>
+                        <th>Hinweis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Datum">08.11.2026</td>
+                        <td data-label="Interner Termin">Vorstandssitzung</td>
+                        <td data-label="Hinweis">19:00 Uhr im Vereinsraum</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Datum">19.11.2026</td>
+                        <td data-label="Interner Termin">Kostuemausgabe</td>
+                        <td data-label="Hinweis">18:30 bis 20:00 Uhr</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Datum">05.12.2026</td>
+                        <td data-label="Interner Termin">Aufbau Adventsstand</td>
+                        <td data-label="Hinweis">Treffpunkt Festplatz 09:00 Uhr</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Datum">09.01.2027</td>
+                        <td data-label="Interner Termin">Generalprobe Programmabend</td>
+                        <td data-label="Hinweis">Bitte in vollstaendiger Haes</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Datum">28.01.2027</td>
+                        <td data-label="Interner Termin">Busabfahrt Narrentreffen</td>
+                        <td data-label="Hinweis">Abfahrt 17:45 Uhr am Rathaus</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Datum">18.02.2027</td>
+                        <td data-label="Interner Termin">Nachbesprechung Kampagne</td>
+                        <td data-label="Hinweis">Mit Helferessen</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="panel info-panel is-hidden" data-auth-only>
+            <h2>Interne Hinweise</h2>
+            <div class="member-grid">
+                <article class="member-card">
+                    <h3>Dienstplan</h3>
+                    <p>Die Einteilung fuer Bar, Einlass und Umzugssicherung erfolgt immer eine Woche vor dem Termin.</p>
+                </article>
+                <article class="member-card">
+                    <h3>Material</h3>
+                    <p>Fahnen, Westen und Vereinsunterlagen bitte nach jeder Veranstaltung direkt im Lagerraum abgeben.</p>
+                </article>
+                <article class="member-card">
+                    <h3>Probe</h3>
+                    <p>Musik- und Programmpunkte treffen sich mittwochs um 19:30 Uhr im Gemeindesaal.</p>
+                </article>
+                <article class="member-card">
+                    <h3>Bildergalerie</h3>
+                    <p>Die Galerie bleibt als eigener geschuetzter Bereich mit sortierten Ordnern erreichbar.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="panel access-panel" data-guest-only>
+            <h2>Mitglieder-Zugang</h2>
+            <p class="panel-copy">
+                Vereinsmitglieder sehen nach dem Login zusaetzlich die internen Termine
+                direkt auf dieser Seite.
+            </p>
+            <a class="button-link" href="mitglieder.html">Zum Login</a>
+        </section>
     </main>
 
     <nav class="navbar" aria-label="Hauptnavigation">
         <a href="index.html">Startseite</a>
-        <a href="intern.html">Interne Termine</a>
         <a href="bildergalerie.html">Bildergalerie</a>
         <a class="active" href="veranstaltungen.html">Veranstaltungen</a>
         <a href="impressum.html">Impressum</a>

@@ -9,9 +9,7 @@ const currentPage = window.location.pathname.split("/").pop() || "index.html";
 const loginPages = new Set(["mitglieder.html", "login.html"]);
 const protectedPages = new Set([
     "index.html",
-    "intern.html",
     "bildergalerie.html",
-    "veranstaltungen.html",
     "impressum.html"
 ]);
 
@@ -19,6 +17,8 @@ const loginForm = document.getElementById("login-form");
 const loginMessage = document.getElementById("loginMessage");
 const logoutButton = document.getElementById("logoutButton");
 const memberName = document.getElementById("memberName");
+const authOnlyElements = Array.from(document.querySelectorAll("[data-auth-only]"));
+const guestOnlyElements = Array.from(document.querySelectorAll("[data-guest-only]"));
 
 const redirectToHome = () => {
     window.location.href = "index.html";
@@ -32,6 +32,14 @@ const isAuthenticated = sessionStorage.getItem(sessionKey) === adminUser.usernam
 
 if (memberName) {
     memberName.textContent = adminUser.displayName;
+}
+
+if (isAuthenticated) {
+    authOnlyElements.forEach((element) => element.classList.remove("is-hidden"));
+    guestOnlyElements.forEach((element) => element.classList.add("is-hidden"));
+} else {
+    authOnlyElements.forEach((element) => element.classList.add("is-hidden"));
+    guestOnlyElements.forEach((element) => element.classList.remove("is-hidden"));
 }
 
 if (isAuthenticated && loginPages.has(currentPage)) {
