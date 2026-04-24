@@ -257,6 +257,51 @@ h3 {
     line-height: 1.6;
 }
 
+.tab-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 22px;
+}
+
+.tab-button {
+    padding: 12px 18px;
+    border: 1px solid rgba(90, 52, 40, 0.12);
+    border-radius: 999px;
+    background: #fff7ea;
+    color: #5a3428;
+    font: inherit;
+    font-weight: 700;
+}
+
+.tab-button.active {
+    background: linear-gradient(135deg, #bb3227, #d88d2f);
+    color: #fff9f1;
+    border-color: transparent;
+}
+
+.type-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(216, 141, 47, 0.18);
+    color: #7b4a1f;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.type-pill--narren {
+    background: rgba(187, 50, 39, 0.12);
+    color: #9d2d24;
+}
+
+.type-pill--board {
+    background: rgba(90, 52, 40, 0.12);
+    color: #5a3428;
+}
+
 .login-form {
     display: grid;
     gap: 18px;

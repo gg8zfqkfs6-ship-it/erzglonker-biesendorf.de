@@ -18,6 +18,8 @@ const logoutButton = document.getElementById("logoutButton");
 const memberName = document.getElementById("memberName");
 const authOnlyElements = Array.from(document.querySelectorAll("[data-auth-only]"));
 const guestOnlyElements = Array.from(document.querySelectorAll("[data-guest-only]"));
+const scheduleRows = Array.from(document.querySelectorAll("[data-schedule-row]"));
+const filterButtons = Array.from(document.querySelectorAll("[data-filter-button]"));
 
 const redirectToHome = () => {
     window.location.href = "index.html";
@@ -73,6 +75,34 @@ if (logoutButton) {
         sessionStorage.removeItem(sessionKey);
         redirectToLogin();
     });
+}
+
+if (scheduleRows.length && filterButtons.length) {
+    const defaultFilter = isAuthenticated ? "all" : "public";
+
+    const applyFilter = (filter) => {
+        filterButtons.forEach((button) => {
+            const isActive = button.dataset.filter === filter;
+            button.classList.toggle("active", isActive);
+            button.setAttribute("aria-selected", String(isActive));
+        });
+
+        scheduleRows.forEach((row) => {
+            const group = row.dataset.filterGroup || "public";
+            const needsAuth = row.hasAttribute("data-auth-only");
+            const hiddenByAuth = needsAuth && !isAuthenticated;
+            const hiddenByFilter = filter !== "all" && group !== filter;
+            row.classList.toggle("is-hidden", hiddenByAuth || hiddenByFilter);
+        });
+    };
+
+    filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            applyFilter(button.dataset.filter || defaultFilter);
+        });
+    });
+
+    applyFilter(defaultFilter);
 }
 
 document.body.classList.remove("auth-pending");

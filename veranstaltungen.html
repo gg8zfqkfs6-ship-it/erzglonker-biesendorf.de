@@ -15,64 +15,14 @@
             <p class="eyebrow">Termine im Vereinsjahr</p>
             <h1>Veranstaltungen und Termine</h1>
             <p class="lead dark">
-                Öffentliche Veranstaltungen sind für alle sichtbar. Die internen
-                Termine erscheinen auf derselben Seite zusätzlich, sobald du
-                angemeldet bist.
+                Alle Termine stehen in einer gemeinsamen Übersicht. Öffentliche Einträge
+                sind frei sichtbar, und nach dem Login kommen die internen Bereiche
+                für Narren und Vorstandschaft dazu.
             </p>
         </section>
 
         <section class="panel">
-            <h2>Öffentliche Veranstaltungen</h2>
-            <p class="panel-copy">
-                Alle wichtigen Narrentreffen und Vereinsmomente auf einen Blick.
-                Die Tabelle ist für Mobilgeräte auf eine gut lesbare Kartenansicht umgestellt.
-            </p>
-
-            <table class="events-table">
-                <thead>
-                    <tr>
-                        <th>Datum</th>
-                        <th>Narrentreffen</th>
-                        <th>Ort</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-label="Datum">10.01.2027</td>
-                        <td data-label="Narrentreffen">Ordensabend und Saisoneröffnung</td>
-                        <td data-label="Ort">Biesendorf</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Datum">24.01.2027</td>
-                        <td data-label="Narrentreffen">Narrentreffen der Nachbarzunft</td>
-                        <td data-label="Ort">Tuttlingen</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Datum">07.02.2027</td>
-                        <td data-label="Narrentreffen">Grosses Narrentreffen mit Umzug</td>
-                        <td data-label="Ort">Stockach</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Datum">12.02.2027</td>
-                        <td data-label="Narrentreffen">Hemdglonker-Abend</td>
-                        <td data-label="Ort">Biesendorf</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Datum">14.02.2027</td>
-                        <td data-label="Narrentreffen">Fasnetssonntag mit Kinderprogramm</td>
-                        <td data-label="Ort">Biesendorf</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Datum">16.02.2027</td>
-                        <td data-label="Narrentreffen">Kehraus und Narrenbaum-Abbau</td>
-                        <td data-label="Ort">Biesendorf</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section class="panel member-panel is-hidden" id="interne-termine" data-auth-only>
-            <div class="member-header">
+            <div class="member-header is-hidden" data-auth-only>
                 <div>
                     <p class="eyebrow dark-eyebrow">Angemeldet als</p>
                     <h2 id="memberName">Admin</h2>
@@ -80,82 +30,111 @@
                 <button type="button" class="secondary-button" id="logoutButton">Logout</button>
             </div>
 
-            <h2>Interne Termine</h2>
+            <h2>Terminübersicht</h2>
             <p class="panel-copy">
-                Dieser Block wird nur nach erfolgreichem Login eingeblendet und enthält
-                vereinsinterne Termine, Proben und organisatorische Hinweise.
+                Über die Reiter filterst du nach Zielgruppe. Ohne Login ist nur der
+                öffentliche Teil sichtbar, nach dem Login erscheinen zusätzlich
+                Narren- und Vorstandschaftstermine.
             </p>
+
+            <div class="tab-bar" role="tablist" aria-label="Terminfilter">
+                <button type="button" class="tab-button" data-filter-button data-filter="all">Alle</button>
+                <button type="button" class="tab-button" data-filter-button data-filter="public">Öffentlich</button>
+                <button type="button" class="tab-button is-hidden" data-auth-only data-filter-button data-filter="narren">Narren</button>
+                <button type="button" class="tab-button is-hidden" data-auth-only data-filter-button data-filter="vorstandschaft">Vorstandschaft</button>
+            </div>
 
             <table class="events-table">
                 <thead>
                     <tr>
                         <th>Datum</th>
-                        <th>Interner Termin</th>
-                        <th>Hinweis</th>
+                        <th>Termin</th>
+                        <th>Ort / Hinweis</th>
+                        <th>Bereich</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr data-schedule-row data-filter-group="public">
+                        <td data-label="Datum">10.01.2027</td>
+                        <td data-label="Termin">Ordensabend und Saisoneröffnung</td>
+                        <td data-label="Ort / Hinweis">Biesendorf</td>
+                        <td data-label="Bereich"><span class="type-pill">Öffentlich</span></td>
+                    </tr>
+                    <tr data-schedule-row data-filter-group="public">
+                        <td data-label="Datum">24.01.2027</td>
+                        <td data-label="Termin">Narrentreffen der Nachbarzunft</td>
+                        <td data-label="Ort / Hinweis">Tuttlingen</td>
+                        <td data-label="Bereich"><span class="type-pill">Öffentlich</span></td>
+                    </tr>
+                    <tr data-schedule-row data-filter-group="public">
+                        <td data-label="Datum">07.02.2027</td>
+                        <td data-label="Termin">Großes Narrentreffen mit Umzug</td>
+                        <td data-label="Ort / Hinweis">Stockach</td>
+                        <td data-label="Bereich"><span class="type-pill">Öffentlich</span></td>
+                    </tr>
+                    <tr data-schedule-row data-filter-group="public">
+                        <td data-label="Datum">12.02.2027</td>
+                        <td data-label="Termin">Hemdglonker-Abend</td>
+                        <td data-label="Ort / Hinweis">Biesendorf</td>
+                        <td data-label="Bereich"><span class="type-pill">Öffentlich</span></td>
+                    </tr>
+                    <tr data-schedule-row data-filter-group="public">
+                        <td data-label="Datum">14.02.2027</td>
+                        <td data-label="Termin">Fasnetssonntag mit Kinderprogramm</td>
+                        <td data-label="Ort / Hinweis">Biesendorf</td>
+                        <td data-label="Bereich"><span class="type-pill">Öffentlich</span></td>
+                    </tr>
+                    <tr data-schedule-row data-filter-group="public">
+                        <td data-label="Datum">16.02.2027</td>
+                        <td data-label="Termin">Kehraus und Narrenbaum-Abbau</td>
+                        <td data-label="Ort / Hinweis">Biesendorf</td>
+                        <td data-label="Bereich"><span class="type-pill">Öffentlich</span></td>
+                    </tr>
+                    <tr class="is-hidden" data-auth-only data-schedule-row data-filter-group="vorstandschaft" id="interne-termine">
                         <td data-label="Datum">08.11.2026</td>
-                        <td data-label="Interner Termin">Vorstandssitzung</td>
-                        <td data-label="Hinweis">19:00 Uhr im Vereinsraum</td>
+                        <td data-label="Termin">Vorstandssitzung</td>
+                        <td data-label="Ort / Hinweis">19:00 Uhr im Vereinsraum</td>
+                        <td data-label="Bereich"><span class="type-pill type-pill--board">Vorstandschaft</span></td>
                     </tr>
-                    <tr>
+                    <tr class="is-hidden" data-auth-only data-schedule-row data-filter-group="narren">
                         <td data-label="Datum">19.11.2026</td>
-                        <td data-label="Interner Termin">Kostümausgabe</td>
-                        <td data-label="Hinweis">18:30 bis 20:00 Uhr</td>
+                        <td data-label="Termin">Kostümausgabe</td>
+                        <td data-label="Ort / Hinweis">18:30 bis 20:00 Uhr</td>
+                        <td data-label="Bereich"><span class="type-pill type-pill--narren">Narren</span></td>
                     </tr>
-                    <tr>
+                    <tr class="is-hidden" data-auth-only data-schedule-row data-filter-group="narren">
                         <td data-label="Datum">05.12.2026</td>
-                        <td data-label="Interner Termin">Aufbau Adventsstand</td>
-                        <td data-label="Hinweis">Treffpunkt Festplatz 09:00 Uhr</td>
+                        <td data-label="Termin">Aufbau Adventsstand</td>
+                        <td data-label="Ort / Hinweis">Treffpunkt Festplatz 09:00 Uhr</td>
+                        <td data-label="Bereich"><span class="type-pill type-pill--narren">Narren</span></td>
                     </tr>
-                    <tr>
+                    <tr class="is-hidden" data-auth-only data-schedule-row data-filter-group="narren">
                         <td data-label="Datum">09.01.2027</td>
-                        <td data-label="Interner Termin">Generalprobe Programmabend</td>
-                        <td data-label="Hinweis">Bitte in vollständiger Häs</td>
+                        <td data-label="Termin">Generalprobe Programmabend</td>
+                        <td data-label="Ort / Hinweis">Bitte in vollständiger Häs</td>
+                        <td data-label="Bereich"><span class="type-pill type-pill--narren">Narren</span></td>
                     </tr>
-                    <tr>
+                    <tr class="is-hidden" data-auth-only data-schedule-row data-filter-group="narren">
                         <td data-label="Datum">28.01.2027</td>
-                        <td data-label="Interner Termin">Busabfahrt Narrentreffen</td>
-                        <td data-label="Hinweis">Abfahrt 17:45 Uhr am Rathaus</td>
+                        <td data-label="Termin">Busabfahrt Narrentreffen</td>
+                        <td data-label="Ort / Hinweis">Abfahrt 17:45 Uhr am Rathaus</td>
+                        <td data-label="Bereich"><span class="type-pill type-pill--narren">Narren</span></td>
                     </tr>
-                    <tr>
+                    <tr class="is-hidden" data-auth-only data-schedule-row data-filter-group="vorstandschaft">
                         <td data-label="Datum">18.02.2027</td>
-                        <td data-label="Interner Termin">Nachbesprechung Kampagne</td>
-                        <td data-label="Hinweis">Mit Helferessen</td>
+                        <td data-label="Termin">Nachbesprechung Kampagne</td>
+                        <td data-label="Ort / Hinweis">Mit Helferessen</td>
+                        <td data-label="Bereich"><span class="type-pill type-pill--board">Vorstandschaft</span></td>
                     </tr>
                 </tbody>
             </table>
         </section>
 
-        <section class="panel info-panel is-hidden" data-auth-only>
-            <h2>Interne Hinweise</h2>
-            <div class="member-grid">
-                <article class="member-card">
-                    <h3>Dienstplan</h3>
-                    <p>Die Einteilung für Bar, Einlass und Umzugssicherung erfolgt immer eine Woche vor dem Termin.</p>
-                </article>
-                <article class="member-card">
-                    <h3>Material</h3>
-                    <p>Fahnen, Westen und Vereinsunterlagen bitte nach jeder Veranstaltung direkt im Lagerraum abgeben.</p>
-                </article>
-                <article class="member-card">
-                    <h3>Probe</h3>
-                    <p>Musik- und Programmpunkte treffen sich mittwochs um 19:30 Uhr im Gemeindesaal.</p>
-                </article>
-                <article class="member-card">
-                    <h3>Bildergalerie</h3>
-                    <p>Die Galerie bleibt als eigener geschützter Bereich mit sortierten Ordnern erreichbar.</p>
-                </article>
-            </div>
-        </section>
-
         <section class="panel access-panel" data-guest-only>
             <h2>Mitglieder-Zugang</h2>
             <p class="panel-copy">
-                Vereinsmitglieder sehen nach dem Login zusätzlich die internen Termine
-                direkt auf dieser Seite.
+                Vereinsmitglieder sehen nach dem Login in derselben Tabelle zusätzlich
+                die Reiter und Einträge für Narren und Vorstandschaft.
             </p>
             <a class="button-link" href="mitglieder.html">Zum Login</a>
         </section>
