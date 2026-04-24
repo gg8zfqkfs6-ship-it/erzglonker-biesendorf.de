@@ -66,6 +66,70 @@ a {
         linear-gradient(90deg, rgba(15, 7, 5, 0.6), rgba(15, 7, 5, 0.12));
 }
 
+.login-page {
+    overflow-x: hidden;
+}
+
+.login-preview {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    filter: blur(16px);
+    transform: scale(1.03);
+    pointer-events: none;
+}
+
+.login-preview::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(12, 5, 4, 0.2);
+}
+
+.preview-shell {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+}
+
+.preview-hero,
+.preview-panel {
+    max-width: 1040px;
+}
+
+.preview-card {
+    background: rgba(255, 247, 234, 0.96);
+}
+
+.navbar-preview {
+    position: fixed;
+}
+
+.login-stage {
+    position: fixed;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.login-modal {
+    width: min(540px, 100%);
+    background: rgba(255, 252, 245, 0.78);
+    box-shadow: 0 32px 100px rgba(15, 7, 5, 0.34);
+    backdrop-filter: blur(16px);
+}
+
+.login-title {
+    font-size: clamp(2.8rem, 8vw, 4.5rem);
+    line-height: 0.98;
+    color: #5a3428;
+}
+
 .hero {
     max-width: 720px;
     padding: 28px 0 64px;
@@ -553,6 +617,19 @@ button,
 
     .hero-card {
         padding: 24px;
+    }
+
+    .login-stage {
+        align-items: flex-end;
+        padding: 18px;
+    }
+
+    .login-modal {
+        padding: 22px;
+    }
+
+    .login-preview {
+        filter: blur(12px);
     }
 
     .page-actions {

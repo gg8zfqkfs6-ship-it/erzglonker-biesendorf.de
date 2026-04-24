@@ -9,22 +9,66 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="page-inner">
-    <main class="page-shell">
-        <section class="page-header">
-            <p class="eyebrow">Interner Bereich</p>
-            <h1>Mitglieder-Zugang</h1>
-            <p class="lead dark">
-                Die Startseite des Vereins ist jetzt geschuetzt. Bitte mit deinen
-                Mitgliedsdaten anmelden, um den internen Bereich zu oeffnen.
-            </p>
-        </section>
+<body class="page-home login-page">
+    <div class="background-stage" aria-hidden="true">
+        <div class="background-layer is-visible"></div>
+        <div class="background-layer"></div>
+        <div class="background-overlay"></div>
+    </div>
 
-        <section class="panel auth-panel" id="loginBox">
-            <h2>Anmeldung</h2>
+    <div class="login-preview" aria-hidden="true">
+        <nav class="navbar navbar-preview" aria-label="Vorschau">
+            <a class="active" href="#">Startseite</a>
+            <a href="#">Interne Termine</a>
+            <a href="#">Bildergalerie</a>
+            <a href="#">Veranstaltungen</a>
+            <a href="#">Impressum</a>
+        </nav>
+
+        <main class="page-shell preview-shell">
+            <section class="hero hero-card preview-hero">
+                <p class="eyebrow">Geschuetzter Vereinsbereich</p>
+                <h1>Narrenverein<br>Ezglonker Biesendorf</h1>
+                <p class="lead">
+                    Interne Termine, Galerie, Veranstaltungsplanung und Vereinsinfos
+                    sind nur nach dem Login sichtbar.
+                </p>
+            </section>
+
+            <section class="panel preview-panel">
+                <div class="quick-grid">
+                    <article class="quick-link preview-card">
+                        <p class="link-kicker">Unterseite 1</p>
+                        <h3>Interne Termine</h3>
+                        <p>Vorstand, Aufbau und Proben kompakt aufbereitet.</p>
+                    </article>
+                    <article class="quick-link preview-card">
+                        <p class="link-kicker">Unterseite 2</p>
+                        <h3>Bildergalerie</h3>
+                        <p>Nach Ordnern sortiert und fuer mobile Nutzung lesbar.</p>
+                    </article>
+                    <article class="quick-link preview-card">
+                        <p class="link-kicker">Oeffentlich</p>
+                        <h3>Veranstaltungen</h3>
+                        <p>Termine, Treffpunkte und wichtige Kampagnenmomente.</p>
+                    </article>
+                    <article class="quick-link preview-card">
+                        <p class="link-kicker">Pflichtseite</p>
+                        <h3>Impressum</h3>
+                        <p>Rechtliche Angaben und Vereinskontakt an einem Ort.</p>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <main class="login-stage">
+        <section class="panel auth-panel login-modal" id="loginBox">
+            <p class="eyebrow dark-eyebrow">Interner Bereich</p>
+            <h1 class="login-title">Mitglieder-Zugang</h1>
             <p class="panel-copy">
-                Nach dem Login gelangst du direkt auf die geschuetzte Startseite mit
-                internen Terminen und Bildergalerie.
+                Die Website liegt hinter dem Login. Nach erfolgreicher Anmeldung wird
+                der geschuetzte Bereich voll sichtbar freigeschaltet.
             </p>
 
             <form id="login-form" class="login-form">
@@ -44,12 +88,7 @@
         </section>
     </main>
 
-    <nav class="navbar" aria-label="Hauptnavigation">
-        <a href="veranstaltungen.html">Veranstaltungen</a>
-        <a class="active" href="mitglieder.html">Mitglieder-Zugang</a>
-        <a href="impressum.html">Impressum</a>
-    </nav>
-
+    <script src="script.js"></script>
     <script src="login.js"></script>
 </body>
 </html>
