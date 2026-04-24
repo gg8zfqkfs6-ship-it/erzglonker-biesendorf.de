@@ -373,6 +373,24 @@ button,
     line-height: 1.6;
 }
 
+.small-footer-link {
+    margin: 20px 0 0;
+    text-align: right;
+}
+
+.small-footer-link a {
+    color: #6d4334;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(109, 67, 52, 0.25);
+}
+
+.small-footer-link a:hover {
+    color: #bb3227;
+    border-bottom-color: rgba(187, 50, 39, 0.45);
+}
+
 .link-kicker {
     margin: 0;
     color: #bb3227;
@@ -572,6 +590,10 @@ button,
     .quick-grid,
     .thumb-grid {
         grid-template-columns: 1fr;
+    }
+
+    .small-footer-link {
+        text-align: left;
     }
 }
 
