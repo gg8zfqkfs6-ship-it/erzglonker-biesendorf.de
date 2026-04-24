@@ -9,8 +9,7 @@ const currentPage = window.location.pathname.split("/").pop() || "index.html";
 const loginPages = new Set(["mitglieder.html", "login.html"]);
 const protectedPages = new Set([
     "index.html",
-    "bildergalerie.html",
-    "impressum.html"
+    "bildergalerie.html"
 ]);
 
 const loginForm = document.getElementById("login-form");
