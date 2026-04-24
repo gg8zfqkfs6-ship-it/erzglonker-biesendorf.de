@@ -7,7 +7,13 @@ const adminUser = {
 const sessionKey = "erzglonkerSession";
 const currentPage = window.location.pathname.split("/").pop() || "index.html";
 const loginPages = new Set(["mitglieder.html", "login.html"]);
-const protectedPages = new Set(["index.html", "intern.html", "bildergalerie.html"]);
+const protectedPages = new Set([
+    "index.html",
+    "intern.html",
+    "bildergalerie.html",
+    "veranstaltungen.html",
+    "impressum.html"
+]);
 
 const loginForm = document.getElementById("login-form");
 const loginMessage = document.getElementById("loginMessage");
