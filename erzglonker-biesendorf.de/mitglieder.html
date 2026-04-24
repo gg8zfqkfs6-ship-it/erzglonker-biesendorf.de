@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitglieder-Zugang | Narrenverein Ezglonker Biesendorf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-inner">
+    <main class="page-shell">
+        <section class="page-header">
+            <p class="eyebrow">Interner Bereich</p>
+            <h1>Mitglieder-Zugang</h1>
+            <p class="lead dark">
+                Dieser Bereich ist fuer Vereinsmitglieder reserviert. Nach dem
+                Login oeffnet sich die interne Terminseite.
+            </p>
+        </section>
+
+        <section class="panel auth-panel" id="loginBox">
+            <h2>Anmeldung</h2>
+            <p class="panel-copy">
+                Bitte mit Benutzername und Passwort anmelden.
+            </p>
+
+            <form id="login-form" class="login-form">
+                <label>
+                    Benutzername
+                    <input type="text" id="username" autocomplete="username" required>
+                </label>
+
+                <label>
+                    Passwort
+                    <input type="password" id="password" autocomplete="current-password" required>
+                </label>
+
+                <button type="submit">Einloggen</button>
+                <p id="loginMessage" class="login-message" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+    <nav class="navbar" aria-label="Hauptnavigation">
+        <a href="index.html">Startseite</a>
+        <a href="veranstaltungen.html">Veranstaltungen</a>
+        <a class="active" href="mitglieder.html">Mitglieder-Zugang</a>
+    </nav>
+
+    <script src="login.js"></script>
+</body>
+</html>
