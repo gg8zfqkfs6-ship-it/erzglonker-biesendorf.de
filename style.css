@@ -36,7 +36,9 @@ a {
 .page-home .page-shell {
     min-height: calc(100vh - 120px);
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
 }
 
 .background-stage {
