@@ -1,0 +1,347 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #efe7d5;
+    color: #f8f2e8;
+    font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
+}
+
+a {
+    color: inherit;
+}
+
+.page-shell {
+    position: relative;
+    z-index: 1;
+    width: min(1100px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 132px 0 72px;
+}
+
+.page-home .page-shell {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+}
+
+.background-stage {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.background-layer,
+.background-overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.background-layer {
+    background-color: #4f1f17;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0;
+    transform: scale(1.04);
+    transition: opacity 1.2s ease, transform 6s ease;
+}
+
+.background-layer.is-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.background-overlay {
+    background:
+        linear-gradient(180deg, rgba(36, 15, 12, 0.25), rgba(36, 15, 12, 0.78)),
+        linear-gradient(90deg, rgba(15, 7, 5, 0.6), rgba(15, 7, 5, 0.12));
+}
+
+.hero {
+    max-width: 720px;
+    padding: 28px 0 64px;
+}
+
+.eyebrow {
+    margin: 0 0 16px;
+    color: #f7c36e;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.dark-eyebrow,
+.dark {
+    color: #5a3428;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    line-height: 0.95;
+}
+
+h1 {
+    font-size: clamp(3.3rem, 7vw, 6.4rem);
+    text-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #5a3428;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #5a3428;
+}
+
+.lead {
+    max-width: 620px;
+    margin: 24px 0 0;
+    font-size: 1.2rem;
+    line-height: 1.65;
+}
+
+.page-inner {
+    color: #2a1913;
+    background:
+        radial-gradient(circle at top, rgba(183, 40, 39, 0.18), transparent 34%),
+        linear-gradient(180deg, #f3ebdc 0%, #e7ddc7 100%);
+}
+
+.page-header {
+    margin-bottom: 28px;
+    padding-top: 24px;
+}
+
+.panel {
+    padding: 28px;
+    border: 1px solid rgba(90, 52, 40, 0.15);
+    border-radius: 20px;
+    background: rgba(255, 252, 245, 0.92);
+    box-shadow: 0 24px 60px rgba(69, 38, 28, 0.12);
+}
+
+.events-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.events-table th,
+.events-table td {
+    padding: 16px 12px;
+    border-bottom: 1px solid rgba(90, 52, 40, 0.12);
+    text-align: left;
+}
+
+.events-table th {
+    font-size: 0.95rem;
+    color: #6d4334;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.events-table tr:last-child td {
+    border-bottom: 0;
+}
+
+.panel-copy {
+    margin: 12px 0 22px;
+    color: #5a3428;
+    line-height: 1.6;
+}
+
+.login-form {
+    display: grid;
+    gap: 18px;
+}
+
+.login-form label {
+    display: grid;
+    gap: 8px;
+    font-weight: 600;
+    color: #5a3428;
+}
+
+input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid rgba(90, 52, 40, 0.2);
+    border-radius: 12px;
+    font: inherit;
+    background: #fffdf9;
+}
+
+input:focus {
+    outline: 2px solid rgba(187, 50, 39, 0.25);
+    border-color: #bb3227;
+}
+
+button {
+    border: 0;
+    border-radius: 999px;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #bb3227, #d88d2f);
+    color: #fff7ef;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.secondary-button {
+    background: #5a3428;
+}
+
+.login-message {
+    min-height: 1.4em;
+    margin: 0;
+    font-weight: 600;
+    color: #bb3227;
+}
+
+.is-hidden {
+    display: none;
+}
+
+.member-panel {
+    margin-top: 20px;
+}
+
+.info-panel {
+    margin-top: 20px;
+}
+
+.member-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.member-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.member-card {
+    padding: 20px;
+    border-radius: 18px;
+    background: #fff7ea;
+    border: 1px solid rgba(90, 52, 40, 0.12);
+}
+
+.member-card p {
+    margin: 12px 0 0;
+    line-height: 1.6;
+}
+
+.navbar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+    background:
+        linear-gradient(180deg, rgba(22, 11, 9, 0.92), rgba(22, 11, 9, 0.58) 60%, rgba(22, 11, 9, 0)),
+        transparent;
+    backdrop-filter: blur(10px);
+}
+
+.page-inner .navbar {
+    background:
+        linear-gradient(180deg, rgba(243, 235, 220, 0.96), rgba(243, 235, 220, 0.82) 60%, rgba(243, 235, 220, 0)),
+        transparent;
+}
+
+.navbar a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+    padding: 14px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff9f1;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.page-inner .navbar a {
+    border-color: rgba(90, 52, 40, 0.15);
+    background: rgba(255, 250, 242, 0.9);
+    color: #5a3428;
+}
+
+.navbar a.active {
+    background: linear-gradient(135deg, #bb3227, #d88d2f);
+    border-color: transparent;
+    color: #fff9f1;
+}
+
+@media (max-width: 900px) {
+    .events-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .member-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+    .page-shell {
+        width: min(100% - 28px, 1000px);
+        padding: 126px 0 48px;
+    }
+
+    .hero {
+        padding-bottom: 24px;
+    }
+
+    h1 {
+        font-size: clamp(2.8rem, 12vw, 4.2rem);
+    }
+
+    .lead {
+        font-size: 1.05rem;
+    }
+
+    .panel {
+        padding: 22px;
+        border-radius: 18px;
+    }
+
+    .member-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 14px;
+    }
+
+    .navbar a {
+        min-width: 0;
+        flex: 1 1 calc(50% - 10px);
+        padding: 12px 14px;
+    }
+}

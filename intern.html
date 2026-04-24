@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interne Termine | Narrenverein Ezglonker Biesendorf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-inner">
+    <main class="page-shell">
+        <section class="page-header">
+            <p class="eyebrow">Nur fuer Mitglieder</p>
+            <h1>Interne Termine</h1>
+            <p class="lead dark">
+                Diese Seite ist nur nach erfolgreichem Login sichtbar und enthaelt
+                vereinsinterne Termine und Absprachen.
+            </p>
+        </section>
+
+        <section class="panel member-panel">
+            <div class="member-header">
+                <div>
+                    <p class="eyebrow dark-eyebrow">Angemeldet als</p>
+                    <h2 id="memberName">Admin</h2>
+                </div>
+                <button type="button" class="secondary-button" id="logoutButton">Logout</button>
+            </div>
+
+            <table class="events-table">
+                <thead>
+                    <tr>
+                        <th>Datum</th>
+                        <th>Interner Termin</th>
+                        <th>Hinweis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>08.11.2026</td>
+                        <td>Vorstandssitzung</td>
+                        <td>19:00 Uhr im Vereinsraum</td>
+                    </tr>
+                    <tr>
+                        <td>19.11.2026</td>
+                        <td>Kostuemausgabe</td>
+                        <td>18:30 bis 20:00 Uhr</td>
+                    </tr>
+                    <tr>
+                        <td>05.12.2026</td>
+                        <td>Aufbau Adventsstand</td>
+                        <td>Treffpunkt Festplatz 09:00 Uhr</td>
+                    </tr>
+                    <tr>
+                        <td>09.01.2027</td>
+                        <td>Generalprobe Programmabend</td>
+                        <td>Bitte in vollstaendiger Haes</td>
+                    </tr>
+                    <tr>
+                        <td>28.01.2027</td>
+                        <td>Busabfahrt Narrentreffen</td>
+                        <td>Abfahrt 17:45 Uhr am Rathaus</td>
+                    </tr>
+                    <tr>
+                        <td>18.02.2027</td>
+                        <td>Nachbesprechung Kampagne</td>
+                        <td>Mit Helferessen</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="panel info-panel">
+            <h2>Interne Hinweise</h2>
+            <div class="member-grid">
+                <article class="member-card">
+                    <h3>Dienstplan</h3>
+                    <p>Die Einteilung fuer Bar, Einlass und Umzugssicherung erfolgt immer eine Woche vor dem Termin.</p>
+                </article>
+                <article class="member-card">
+                    <h3>Material</h3>
+                    <p>Fahnen, Westen und Vereinsunterlagen bitte nach jeder Veranstaltung direkt im Lagerraum abgeben.</p>
+                </article>
+                <article class="member-card">
+                    <h3>Probe</h3>
+                    <p>Musik- und Programmpunkte treffen sich mittwochs um 19:30 Uhr im Gemeindesaal.</p>
+                </article>
+                <article class="member-card">
+                    <h3>Kontakt</h3>
+                    <p>Interne Aenderungen und kurzfristige Absagen bitte an den Vorstand weitergeben.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <nav class="navbar" aria-label="Hauptnavigation">
+        <a href="index.html">Startseite</a>
+        <a href="veranstaltungen.html">Veranstaltungen</a>
+        <a class="active" href="intern.html">Interner Bereich</a>
+    </nav>
+
+    <script src="login.js"></script>
+</body>
+</html>
