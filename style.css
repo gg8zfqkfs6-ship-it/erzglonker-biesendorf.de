@@ -391,6 +391,10 @@ button,
     text-align: right;
 }
 
+.small-footer-link--center {
+    text-align: center;
+}
+
 .small-footer-link a {
     color: #6d4334;
     font-size: 0.95rem;
@@ -402,6 +406,12 @@ button,
 .small-footer-link a:hover {
     color: #bb3227;
     border-bottom-color: rgba(187, 50, 39, 0.45);
+}
+
+.small-footer-link a[aria-current="page"] {
+    color: #6d4334;
+    border-bottom-color: transparent;
+    cursor: default;
 }
 
 .link-kicker {
