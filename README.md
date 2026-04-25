@@ -1,14 +1,28 @@
 # erzglonker-biesendorf.de
+
 Webseite Erzglonker Biesendorf
 
-## MySQL / OVH Setup
+## Zugangsmodell ohne Datenbank
 
-1. `config.example.php` auf dem OVH-Webspace zu `config.php` kopieren.
-2. In `config.php` die MySQL-Zugangsdaten aus OVH eintragen.
-3. Die komplette Website inklusive `api/`-Ordner auf den OVH-Webspace laden.
-4. Beim ersten Aufruf legt die Anwendung die Tabellen an und erstellt automatisch:
-   - Gruppen `Narren` und `Vorstandschaft`
-   - Admin-Benutzer `admin` mit Startpasswort `1234`
-5. Beim ersten Login muss das Startpasswort sofort geändert werden.
+Die Website ist jetzt in drei Bereiche aufgeteilt:
 
-Hinweis: GitHub Pages kann kein PHP ausführen. Die MySQL-Version der Website läuft daher erst richtig auf OVH oder einem anderen PHP-Webspace.
+- `index.html` und `veranstaltungen.html` sind öffentlich
+- `intern/` ist passwortgeschützt für Mitglieder
+- `vorstand/` ist separat passwortgeschützt nur für die Vorstandschaft
+
+Die Serverabsicherung läuft über Apache `Basic Auth` mit `.htaccess` und `.htpasswd`.
+Passwörter liegen dabei nicht im Klartext auf dem Server, sondern nur als Hash.
+
+## OVH Deployment
+
+1. Website auf den OVH-Webspace hochladen.
+2. In `intern/.htaccess` und `vorstand/.htaccess` die Zeile `AuthUserFile` auf den echten absoluten OVH-Pfad anpassen.
+3. `.htpasswd.example` in eine echte Datei `.htpasswd-erzglonker` umwandeln.
+4. Diese `.htpasswd-erzglonker` außerhalb des öffentlichen Web-Ordners auf OVH ablegen.
+5. Die Platzhalter-Hashes in `.htpasswd-erzglonker` durch echte Werte ersetzen, zum Beispiel lokal mit:
+   - `openssl passwd -apr1`
+
+Initiale Benutzer:
+
+- `intern`
+- `vorstand`

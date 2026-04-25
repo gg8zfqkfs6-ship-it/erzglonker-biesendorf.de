@@ -1,0 +1,5 @@
+AuthType Basic
+AuthName "Interner Bereich Erzglonker Biesendorf"
+AuthUserFile /home/CHANGE_ME/.htpasswd-erzglonker
+Require user intern vorstand
+ErrorDocument 401 /mitglieder.html

@@ -1,0 +1,5 @@
+AuthType Basic
+AuthName "Vorstandsbereich Erzglonker Biesendorf"
+AuthUserFile /home/CHANGE_ME/.htpasswd-erzglonker
+Require user vorstand
+ErrorDocument 401 /mitglieder.html

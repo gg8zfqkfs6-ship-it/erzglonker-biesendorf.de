@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mitglieder-Zugang | Narrenverein Ezglonker Biesendorf</title>
+    <title>Zugänge | Narrenverein Ezglonker Biesendorf</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -16,114 +16,48 @@
         <div class="background-overlay"></div>
     </div>
 
-    <div class="login-preview" aria-hidden="true">
-        <nav class="navbar navbar-preview" aria-label="Vorschau">
-            <a class="active" href="#">Startseite</a>
-            <a href="#">Interne Termine</a>
-            <a href="#">Bildergalerie</a>
-            <a href="#">Veranstaltungen</a>
-            <a href="#">Impressum</a>
-        </nav>
-
-        <main class="page-shell preview-shell">
-            <section class="hero hero-card preview-hero">
-                <p class="eyebrow">Geschützter Vereinsbereich</p>
-                <h1>Narrenverein<br>Ezglonker Biesendorf</h1>
-                <p class="lead">
-                    Interne Termine, Galerie, Veranstaltungsplanung und Vereinsinfos
-                    sind nur nach dem Login sichtbar.
-                </p>
-            </section>
-
-            <section class="panel preview-panel">
-                <div class="quick-grid">
-                    <article class="quick-link preview-card">
-                        <p class="link-kicker">Unterseite 1</p>
-                        <h3>Interne Termine</h3>
-                        <p>Vorstand, Aufbau und Proben kompakt aufbereitet.</p>
-                    </article>
-                    <article class="quick-link preview-card">
-                        <p class="link-kicker">Unterseite 2</p>
-                        <h3>Bildergalerie</h3>
-                        <p>Nach Ordnern sortiert und für mobile Nutzung lesbar.</p>
-                    </article>
-                    <article class="quick-link preview-card">
-                        <p class="link-kicker">Öffentlich</p>
-                        <h3>Veranstaltungen</h3>
-                        <p>Termine, Treffpunkte und wichtige Kampagnenmomente.</p>
-                    </article>
-                    <article class="quick-link preview-card">
-                        <p class="link-kicker">Pflichtseite</p>
-                        <h3>Impressum</h3>
-                        <p>Rechtliche Angaben und Vereinskontakt an einem Ort.</p>
-                    </article>
-                </div>
-            </section>
-        </main>
-    </div>
-
-    <main class="login-stage">
-        <section class="panel auth-panel login-modal" id="loginBox">
-            <p class="eyebrow dark-eyebrow">Interner Bereich</p>
-            <h1 class="login-title">Mitglieder-Zugang</h1>
-            <p class="panel-copy" id="loginIntro">
-                Die Website liegt hinter dem Login. Nach erfolgreicher Anmeldung wird
-                der geschützte Bereich voll sichtbar freigeschaltet.
-            </p>
-
-            <form id="login-form" class="login-form">
-                <label>
-                    Benutzername
-                    <input type="text" id="username" autocomplete="username" required>
-                </label>
-
-                <label>
-                    Passwort
-                    <input type="password" id="password" autocomplete="current-password" required>
-                </label>
-
-                <button type="submit">Einloggen</button>
-                <p id="loginMessage" class="login-message" aria-live="polite"></p>
-            </form>
-
-            <section id="changePasswordBox" class="is-hidden password-change-box">
-                <h2>Passwort ändern</h2>
-                <p class="panel-copy">
-                    Beim ersten Login muss das Startpasswort durch ein eigenes Passwort ersetzt werden.
-                </p>
-
-                <form id="change-password-form" class="login-form">
-                    <label>
-                        Aktuelles Passwort
-                        <input type="password" id="currentPassword" autocomplete="current-password" required>
-                    </label>
-
-                    <label>
-                        Neues Passwort
-                        <input type="password" id="newPassword" autocomplete="new-password" minlength="6" required>
-                    </label>
-
-                    <label>
-                        Neues Passwort wiederholen
-                        <input type="password" id="confirmPassword" autocomplete="new-password" minlength="6" required>
-                    </label>
-
-                    <div class="form-actions">
-                        <button type="submit">Passwort speichern</button>
-                        <button type="button" class="secondary-button" id="changePasswordLogout">Abmelden</button>
-                    </div>
-                    <p id="changePasswordMessage" class="login-message" aria-live="polite"></p>
-                </form>
-            </section>
-
-            <p class="small-footer-link small-footer-link--center">
-                <a href="impressum.html">Impressum</a>
+    <main class="page-shell">
+        <section class="hero hero-card">
+            <p class="eyebrow">Geschützte Zugänge</p>
+            <h1>Mitglieder- und<br>Vorstandsbereich</h1>
+            <p class="lead">
+                Die geschützten Bereiche werden jetzt direkt vom Webserver mit
+                Passwort abgesichert. Passwörter liegen dabei nicht im Klartext auf
+                der Website, sondern nur als Hash in der `.htpasswd`-Datei.
             </p>
         </section>
+
+        <section class="panel intro-panel">
+            <div class="area-grid">
+                <a class="quick-link" href="intern/">
+                    <p class="link-kicker">Mitglieder</p>
+                    <h3>Interner Bereich</h3>
+                    <p>Zugang für Mitglieder mit internen Terminen und Bildergalerie.</p>
+                </a>
+                <a class="quick-link" href="vorstand/">
+                    <p class="link-kicker">Vorstand</p>
+                    <h3>Vorstandsbereich</h3>
+                    <p>Separater Bereich nur für die Vorstandschaft.</p>
+                </a>
+            </div>
+
+            <div class="security-note">
+                Beim Öffnen fragt der Browser direkt nach Benutzername und Passwort.
+                Diese Prüfung läuft serverseitig über OVH und nicht mehr im Browser.
+            </div>
+        </section>
+
+        <p class="small-footer-link small-footer-link--home">
+            <a href="impressum.html">Impressum</a>
+        </p>
     </main>
 
+    <nav class="navbar" aria-label="Hauptnavigation">
+        <a href="index.html">Startseite</a>
+        <a href="veranstaltungen.html">Veranstaltungen</a>
+        <a class="active" href="mitglieder.html">Mitgliederbereich</a>
+    </nav>
+
     <script src="script.js"></script>
-    <script src="auth.js"></script>
-    <script src="login.js"></script>
 </body>
 </html>

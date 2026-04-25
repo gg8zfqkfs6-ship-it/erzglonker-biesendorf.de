@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mitglieder-Start | Narrenverein Ezglonker Biesendorf</title>
+    <title>Narrenverein Ezglonker Biesendorf</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="page-home auth-pending">
+<body class="page-home">
     <div class="background-stage" aria-hidden="true">
         <div class="background-layer is-visible"></div>
         <div class="background-layer"></div>
@@ -18,21 +18,32 @@
 
     <main class="page-shell">
         <section class="hero hero-card">
-            <div class="member-header member-header--hero">
-                <div>
-                    <p class="eyebrow">Geschützter Startbereich</p>
-                    <h1>Narrenverein<br>Ezglonker Biesendorf</h1>
-                </div>
-                <div class="page-actions">
-                    <p class="badge">Angemeldet als <strong id="memberName">Admin</strong></p>
-                    <button type="button" class="secondary-button" id="logoutButton">Logout</button>
-                </div>
-            </div>
+            <p class="eyebrow">Willkommen</p>
+            <h1>Narrenverein<br>Ezglonker Biesendorf</h1>
             <p class="lead">
-                Willkommen im internen Bereich des Vereins. Von hier aus erreichst du
-                die internen Termine, die Bildergalerie und alle wichtigen Hinweise
-                für die Kampagne bequem auch auf dem Handy.
+                Öffentliche Termine sind frei sichtbar. Der interne Bereich und der
+                Vorstandsbereich liegen separat hinter einem Server-Passwortschutz.
             </p>
+        </section>
+
+        <section class="panel intro-panel">
+            <div class="area-grid">
+                <a class="quick-link" href="veranstaltungen.html">
+                    <p class="link-kicker">Öffentlich</p>
+                    <h3>Veranstaltungen</h3>
+                    <p>Alle öffentlichen Termine und Kampagnenpunkte ohne Login.</p>
+                </a>
+                <a class="quick-link" href="mitglieder.html">
+                    <p class="link-kicker">Zugang</p>
+                    <h3>Interner Bereich</h3>
+                    <p>Mitgliederbereich mit Galerie und internen Vereinsinfos.</p>
+                </a>
+                <a class="quick-link" href="vorstand/">
+                    <p class="link-kicker">Geschützt</p>
+                    <h3>Vorstand</h3>
+                    <p>Separater Bereich mit Vorstandsterminen und internen Notizen.</p>
+                </a>
+            </div>
         </section>
 
         <p class="small-footer-link small-footer-link--home">
@@ -42,13 +53,10 @@
 
     <nav class="navbar" aria-label="Hauptnavigation">
         <a class="active" href="index.html">Startseite</a>
-        <a href="bildergalerie.html">Bildergalerie</a>
         <a href="veranstaltungen.html">Veranstaltungen</a>
-        <a class="is-hidden" data-admin-only href="admin.html">Admin</a>
+        <a href="mitglieder.html">Mitgliederbereich</a>
     </nav>
 
     <script src="script.js"></script>
-    <script src="auth.js"></script>
-    <script src="login.js"></script>
 </body>
 </html>

@@ -521,6 +521,12 @@ button,
     gap: 16px;
 }
 
+.area-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
 .quick-link {
     display: block;
     padding: 22px;
@@ -572,6 +578,16 @@ button,
     color: #6d4334;
     border-bottom-color: transparent;
     cursor: default;
+}
+
+.security-note {
+    margin-top: 20px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: rgba(255, 247, 234, 0.78);
+    border: 1px solid rgba(90, 52, 40, 0.12);
+    color: #5a3428;
+    line-height: 1.6;
 }
 
 .link-kicker {
@@ -771,6 +787,7 @@ button,
     }
 
     .quick-grid,
+    .area-grid,
     .thumb-grid,
     .admin-grid {
         grid-template-columns: 1fr;
