@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Narrenverein Ezglonker Biesendorf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-inner">
+    <main class="page-shell">
+        <section class="page-header">
+            <div class="member-header">
+                <div>
+                    <p class="eyebrow">Verwaltung</p>
+                    <h1>Admin</h1>
+                    <p class="lead dark">Hier legst du neue Benutzer an und weist ihnen Gruppen zu.</p>
+                </div>
+                <div class="page-actions">
+                    <p class="badge admin-badge">Angemeldet als <strong id="memberName">Admin</strong></p>
+                    <button type="button" class="secondary-button" id="logoutButton">Logout</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="admin-grid">
+            <section class="panel">
+                <h2>Neue Gruppe</h2>
+                <p class="panel-copy">Gruppen stehen anschließend bei der Benutzeranlage direkt zur Auswahl.</p>
+                <form id="group-form" class="login-form">
+                    <label>
+                        Gruppenname
+                        <input type="text" id="newGroupName" required>
+                    </label>
+                    <button type="submit">Gruppe anlegen</button>
+                    <p id="groupMessage" class="login-message" aria-live="polite"></p>
+                </form>
+            </section>
+
+            <section class="panel">
+                <h2>Neuen Benutzer anlegen</h2>
+                <form id="user-form" class="login-form">
+                    <label>
+                        Anzeigename
+                        <input type="text" id="newDisplayName" required>
+                    </label>
+                    <label>
+                        Benutzername
+                        <input type="text" id="newUsername" required>
+                    </label>
+                    <label>
+                        Passwort
+                        <input type="password" id="newPassword" required>
+                    </label>
+                    <fieldset class="group-fieldset">
+                        <legend>Gruppen</legend>
+                        <div id="groupOptions" class="group-option-list"></div>
+                    </fieldset>
+                    <label class="checkbox-row">
+                        <input type="checkbox" id="isAdmin">
+                        <span>Als Admin anlegen</span>
+                    </label>
+                    <button type="submit">Benutzer speichern</button>
+                    <p id="userMessage" class="login-message" aria-live="polite"></p>
+                </form>
+            </section>
+        </section>
+
+        <section class="panel admin-users-panel">
+            <h2>Benutzer und Gruppen</h2>
+            <p class="panel-copy">Die Häkchen bei einem Benutzer aktualisieren seine Gruppenzuordnung sofort.</p>
+            <div id="usersList" class="admin-user-list"></div>
+        </section>
+
+        <p class="small-footer-link">
+            <a href="impressum.html">Impressum</a>
+        </p>
+    </main>
+
+    <nav class="navbar" aria-label="Hauptnavigation">
+        <a href="index.html">Startseite</a>
+        <a href="bildergalerie.html">Bildergalerie</a>
+        <a href="veranstaltungen.html">Veranstaltungen</a>
+        <a class="active" href="admin.html">Admin</a>
+    </nav>
+
+    <script src="auth.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

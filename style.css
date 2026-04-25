@@ -302,6 +302,81 @@ h3 {
     color: #5a3428;
 }
 
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.admin-users-panel {
+    margin-top: 20px;
+}
+
+.admin-user-list {
+    display: grid;
+    gap: 16px;
+}
+
+.admin-card {
+    padding: 20px;
+    border-radius: 18px;
+    background: #fff7ea;
+    border: 1px solid rgba(90, 52, 40, 0.12);
+}
+
+.admin-card-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.admin-subline {
+    margin: 8px 0 0;
+    color: #6d4334;
+    font-weight: 600;
+}
+
+.admin-group-wrap,
+.group-option-list {
+    display: grid;
+    gap: 10px;
+}
+
+.group-fieldset {
+    margin: 0;
+    padding: 14px 16px 16px;
+    border: 1px solid rgba(90, 52, 40, 0.12);
+    border-radius: 16px;
+}
+
+.group-fieldset legend {
+    padding: 0 6px;
+    color: #6d4334;
+    font-weight: 700;
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #5a3428;
+    font-weight: 600;
+}
+
+.checkbox-row input {
+    width: auto;
+    margin: 0;
+}
+
+.admin-badge {
+    background: rgba(90, 52, 40, 0.9);
+}
+
+.login-message.is-error {
+    color: #bb3227;
+}
+
 .login-form {
     display: grid;
     gap: 18px;
@@ -658,7 +733,8 @@ button,
     }
 
     .quick-grid,
-    .thumb-grid {
+    .thumb-grid,
+    .admin-grid {
         grid-template-columns: 1fr;
     }
 
