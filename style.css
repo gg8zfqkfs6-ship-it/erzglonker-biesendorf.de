@@ -373,13 +373,51 @@ h3 {
     background: rgba(90, 52, 40, 0.9);
 }
 
+.status-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.status-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(45, 107, 60, 0.12);
+    color: #2d6b3c;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.status-chip--warn {
+    background: rgba(216, 141, 47, 0.18);
+    color: #8c5c16;
+}
+
 .login-message.is-error {
     color: #bb3227;
+}
+
+.login-message.is-success {
+    color: #2d6b3c;
 }
 
 .login-form {
     display: grid;
     gap: 18px;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.password-change-box {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(90, 52, 40, 0.12);
 }
 
 .login-form label {

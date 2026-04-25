@@ -1,14 +1,4 @@
 const auth = window.ErzglonkerAuth;
-const currentUser = auth.getSessionUser();
-
-if (!currentUser) {
-    window.location.href = "mitglieder.html";
-}
-
-if (!currentUser?.isAdmin) {
-    window.location.href = "index.html";
-}
-
 const userForm = document.getElementById("user-form");
 const userMessage = document.getElementById("userMessage");
 const groupForm = document.getElementById("group-form");
@@ -18,12 +8,25 @@ const groupsFieldset = document.getElementById("groupOptions");
 const memberName = document.getElementById("memberName");
 const logoutButton = document.getElementById("logoutButton");
 
+const state = {
+    groups: [],
+    users: []
+};
+
 const showMessage = (element, text, isError = false) => {
     if (!element) {
         return;
     }
+
     element.textContent = text;
     element.classList.toggle("is-error", isError);
+    element.classList.toggle("is-success", Boolean(text) && !isError);
+};
+
+const loadAdminData = async () => {
+    const data = await auth.getAdminData();
+    state.groups = data.groups;
+    state.users = data.users;
 };
 
 const renderGroupsSelector = () => {
@@ -31,10 +34,9 @@ const renderGroupsSelector = () => {
         return;
     }
 
-    const groups = auth.getGroups();
     groupsFieldset.innerHTML = "";
 
-    groups.forEach((group) => {
+    state.groups.forEach((group) => {
         const label = document.createElement("label");
         label.className = "checkbox-row";
 
@@ -59,41 +61,52 @@ const renderUsers = () => {
         return;
     }
 
-    const users = auth.getUsers();
     usersList.innerHTML = "";
 
-    users.forEach((user) => {
+    state.users.forEach((user) => {
         const item = document.createElement("article");
         item.className = "admin-card";
 
         const heading = document.createElement("div");
         heading.className = "admin-card-header";
-        heading.innerHTML = `
-            <div>
-                <h3>${user.displayName}</h3>
-                <p class="admin-subline">@${user.username}${user.isAdmin ? " · Admin" : ""}</p>
-            </div>
+
+        const titleWrap = document.createElement("div");
+        titleWrap.innerHTML = `
+            <h3>${user.displayName}</h3>
+            <p class="admin-subline">@${user.username}${user.isAdmin ? " · Admin" : ""}</p>
         `;
+
+        const status = document.createElement("div");
+        status.className = "status-row";
+        status.innerHTML = user.mustChangePassword
+            ? '<span class="status-chip status-chip--warn">Passwortwechsel offen</span>'
+            : '<span class="status-chip">Aktiv</span>';
+
+        heading.append(titleWrap, status);
 
         const groupsWrap = document.createElement("div");
         groupsWrap.className = "admin-group-wrap";
 
-        auth.getGroups().forEach((group) => {
+        state.groups.forEach((group) => {
             const label = document.createElement("label");
             label.className = "checkbox-row";
 
             const checkbox = document.createElement("input");
             checkbox.type = "checkbox";
             checkbox.checked = user.groups.includes(group);
-            checkbox.disabled = user.isAdmin && group === "Vorstandschaft";
-            checkbox.addEventListener("change", () => {
+            checkbox.value = group;
+            checkbox.addEventListener("change", async () => {
                 const selected = Array.from(groupsWrap.querySelectorAll("input:checked")).map(
                     (input) => input.value
                 );
-                auth.updateUserGroups(user.username, selected);
-                renderUsers();
+
+                try {
+                    await auth.updateUserGroups(user.username, selected);
+                    await refreshAdminView();
+                } catch (error) {
+                    showMessage(userMessage, error.message, true);
+                }
             });
-            checkbox.value = group;
 
             const span = document.createElement("span");
             span.textContent = group;
@@ -106,59 +119,80 @@ const renderUsers = () => {
     });
 };
 
-if (memberName) {
-    memberName.textContent = currentUser.displayName;
-}
+const refreshAdminView = async () => {
+    await loadAdminData();
+    renderGroupsSelector();
+    renderUsers();
+};
 
-if (logoutButton) {
-    logoutButton.addEventListener("click", () => {
-        auth.logout();
+const boot = async () => {
+    await auth.init();
+    const currentUser = auth.getSessionUser();
+
+    if (!auth.isReadyAuthenticated()) {
         window.location.href = "mitglieder.html";
-    });
-}
+        return;
+    }
 
-if (groupForm) {
-    groupForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const input = document.getElementById("newGroupName");
-        const value = input?.value || "";
+    if (!currentUser?.isAdmin) {
+        window.location.href = "index.html";
+        return;
+    }
 
-        try {
-            auth.createGroup(value);
-            if (input) {
-                input.value = "";
+    if (memberName) {
+        memberName.textContent = currentUser.displayName;
+    }
+
+    if (logoutButton) {
+        logoutButton.addEventListener("click", async () => {
+            await auth.logout();
+            window.location.href = "mitglieder.html";
+        });
+    }
+
+    if (groupForm) {
+        groupForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const input = document.getElementById("newGroupName");
+
+            try {
+                await auth.createGroup(input?.value || "");
+                if (input) {
+                    input.value = "";
+                }
+                await refreshAdminView();
+                showMessage(groupMessage, "Gruppe wurde angelegt.");
+            } catch (error) {
+                showMessage(groupMessage, error.message, true);
             }
-            renderGroupsSelector();
-            renderUsers();
-            showMessage(groupMessage, "Gruppe wurde angelegt.");
-        } catch (error) {
-            showMessage(groupMessage, error.message, true);
-        }
-    });
-}
+        });
+    }
 
-if (userForm) {
-    userForm.addEventListener("submit", (event) => {
-        event.preventDefault();
+    if (userForm) {
+        userForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
 
-        try {
-            auth.createUser({
-                username: document.getElementById("newUsername")?.value || "",
-                displayName: document.getElementById("newDisplayName")?.value || "",
-                password: document.getElementById("newPassword")?.value || "",
-                groups: getSelectedGroups(),
-                isAdmin: document.getElementById("isAdmin")?.checked || false
-            });
+            try {
+                await auth.createUser({
+                    username: document.getElementById("newUsername")?.value || "",
+                    displayName: document.getElementById("newDisplayName")?.value || "",
+                    password: document.getElementById("newPassword")?.value || "",
+                    groups: getSelectedGroups(),
+                    isAdmin: document.getElementById("isAdmin")?.checked || false
+                });
 
-            userForm.reset();
-            renderGroupsSelector();
-            renderUsers();
-            showMessage(userMessage, "Benutzer wurde angelegt.");
-        } catch (error) {
-            showMessage(userMessage, error.message, true);
-        }
-    });
-}
+                userForm.reset();
+                await refreshAdminView();
+                showMessage(userMessage, "Benutzer wurde angelegt. Beim ersten Login wird ein neues Passwort verlangt.");
+            } catch (error) {
+                showMessage(userMessage, error.message, true);
+            }
+        });
+    }
 
-renderGroupsSelector();
-renderUsers();
+    await refreshAdminView();
+};
+
+boot().catch((error) => {
+    showMessage(userMessage, error.message, true);
+});

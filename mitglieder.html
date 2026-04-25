@@ -66,7 +66,7 @@
         <section class="panel auth-panel login-modal" id="loginBox">
             <p class="eyebrow dark-eyebrow">Interner Bereich</p>
             <h1 class="login-title">Mitglieder-Zugang</h1>
-            <p class="panel-copy">
+            <p class="panel-copy" id="loginIntro">
                 Die Website liegt hinter dem Login. Nach erfolgreicher Anmeldung wird
                 der geschützte Bereich voll sichtbar freigeschaltet.
             </p>
@@ -85,6 +85,36 @@
                 <button type="submit">Einloggen</button>
                 <p id="loginMessage" class="login-message" aria-live="polite"></p>
             </form>
+
+            <section id="changePasswordBox" class="is-hidden password-change-box">
+                <h2>Passwort ändern</h2>
+                <p class="panel-copy">
+                    Beim ersten Login muss das Startpasswort durch ein eigenes Passwort ersetzt werden.
+                </p>
+
+                <form id="change-password-form" class="login-form">
+                    <label>
+                        Aktuelles Passwort
+                        <input type="password" id="currentPassword" autocomplete="current-password" required>
+                    </label>
+
+                    <label>
+                        Neues Passwort
+                        <input type="password" id="newPassword" autocomplete="new-password" minlength="6" required>
+                    </label>
+
+                    <label>
+                        Neues Passwort wiederholen
+                        <input type="password" id="confirmPassword" autocomplete="new-password" minlength="6" required>
+                    </label>
+
+                    <div class="form-actions">
+                        <button type="submit">Passwort speichern</button>
+                        <button type="button" class="secondary-button" id="changePasswordLogout">Abmelden</button>
+                    </div>
+                    <p id="changePasswordMessage" class="login-message" aria-live="polite"></p>
+                </form>
+            </section>
 
             <p class="small-footer-link small-footer-link--center">
                 <a href="impressum.html">Impressum</a>
