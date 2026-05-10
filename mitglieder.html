@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zugänge | Narrenverein Ezglonker Biesendorf</title>
+    <title>Geschützter Zugang | Narrenverein Ezglonker Biesendorf</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -18,32 +18,37 @@
 
     <main class="page-shell">
         <section class="hero hero-card">
-            <p class="eyebrow">Geschützte Zugänge</p>
-            <h1>Mitglieder- und<br>Vorstandsbereich</h1>
+            <p class="eyebrow">Geschützte Website</p>
+            <h1>Narrenverein<br>Ezglonker Biesendorf</h1>
             <p class="lead">
-                Die geschützten Bereiche werden jetzt direkt vom Webserver mit
-                Passwort abgesichert. Passwörter liegen dabei nicht im Klartext auf
-                der Website, sondern nur als Hash in der `.htpasswd`-Datei.
+                Die komplette Website ist jetzt serverseitig mit einem gemeinsamen
+                Passwort geschützt. Nach dem Browser-Login sind alle Seiten der
+                Website erreichbar.
             </p>
         </section>
 
         <section class="panel intro-panel">
             <div class="area-grid">
-                <a class="quick-link" href="intern/">
-                    <p class="link-kicker">Mitglieder</p>
-                    <h3>Interner Bereich</h3>
-                    <p>Zugang für Mitglieder mit internen Terminen und Bildergalerie.</p>
+                <a class="quick-link" href="index.html">
+                    <p class="link-kicker">Start</p>
+                    <h3>Website öffnen</h3>
+                    <p>Nach dem Passwort-Popup ist die komplette Website freigeschaltet.</p>
                 </a>
-                <a class="quick-link" href="vorstand/">
-                    <p class="link-kicker">Vorstand</p>
-                    <h3>Vorstandsbereich</h3>
-                    <p>Separater Bereich nur für die Vorstandschaft.</p>
+                <a class="quick-link" href="veranstaltungen.html">
+                    <p class="link-kicker">Termine</p>
+                    <h3>Veranstaltungen</h3>
+                    <p>Öffentliche und interne Seiten liegen nun gemeinsam hinter einem Schutz.</p>
+                </a>
+                <a class="quick-link" href="intern/">
+                    <p class="link-kicker">Bereiche</p>
+                    <h3>Interne Seiten</h3>
+                    <p>Mitglieder- und Vorstandsseiten bleiben als Unterseiten erhalten.</p>
                 </a>
             </div>
 
             <div class="security-note">
-                Beim Öffnen fragt der Browser direkt nach Benutzername und Passwort.
-                Diese Prüfung läuft serverseitig über OVH und nicht mehr im Browser.
+                Der Browser fragt direkt nach Benutzername und Passwort. Die Prüfung
+                läuft serverseitig über OVH mit `.htaccess` und `.htpasswd`.
             </div>
         </section>
 
@@ -55,7 +60,7 @@
     <nav class="navbar" aria-label="Hauptnavigation">
         <a href="index.html">Startseite</a>
         <a href="veranstaltungen.html">Veranstaltungen</a>
-        <a class="active" href="mitglieder.html">Mitgliederbereich</a>
+        <a class="active" href="mitglieder.html">Zugang</a>
     </nav>
 
     <script src="script.js"></script>

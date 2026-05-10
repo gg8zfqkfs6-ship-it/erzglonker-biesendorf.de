@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Erzglonker Biesendorf"
+AuthUserFile /home/CHANGE_ME/.htpasswd-erzglonker
+Require user zugang
