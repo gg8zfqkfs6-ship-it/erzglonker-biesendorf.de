@@ -82,12 +82,12 @@
                 Die weiteren Vereinsbereiche sind direkt über die Website erreichbar.
             </p>
             <div class="area-grid">
-                <a class="quick-link" href="intern/">
+                <a class="quick-link is-hidden" data-min-role="narren" href="intern/">
                     <p class="link-kicker">Unterseite</p>
                     <h3>Interner Bereich</h3>
                     <p>Mitgliedertermine, Galerie und interne Vereinsinfos.</p>
                 </a>
-                <a class="quick-link" href="vorstand/">
+                <a class="quick-link is-hidden" data-min-role="vorstand" href="vorstand/">
                     <p class="link-kicker">Unterseite</p>
                     <h3>Vorstandsbereich</h3>
                     <p>Termine und Hinweise für die Vorstandschaft.</p>
@@ -103,7 +103,8 @@
     <nav class="navbar" aria-label="Hauptnavigation">
         <a href="index.html">Startseite</a>
         <a class="active" href="veranstaltungen.html">Veranstaltungen</a>
-        <a href="mitglieder.html">Mitgliederbereich</a>
+        <a href="mitglieder.html">Zugang</a>
+        <button type="button" class="secondary-button nav-logout" data-logout-button>Abmelden</button>
     </nav>
     <script src="auth.js"></script>
 </body>

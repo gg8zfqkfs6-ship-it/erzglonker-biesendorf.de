@@ -21,11 +21,16 @@
             <p class="eyebrow dark-eyebrow">Geschützte Website</p>
             <h1 class="login-title">Narrenverein<br>Ezglonker Biesendorf</h1>
             <p class="panel-copy">
-                Die komplette Website ist jetzt mit einem gemeinsamen Passwort geschützt.
-                Nach dem Login sind alle Seiten der Website erreichbar.
+                Die Website nutzt jetzt vier verschiedene Zugänge mit unterschiedlichen
+                Rechten für offene Seiten, Mitglieder, Vorstand und Admin.
             </p>
 
             <form id="login-form" class="login-form">
+                <label>
+                    Benutzername
+                    <input type="text" id="username" autocomplete="username" required>
+                </label>
+
                 <label>
                     Passwort
                     <input type="password" id="password" autocomplete="current-password" required>
@@ -36,8 +41,9 @@
             </form>
 
             <div class="security-note">
-                Diese Variante funktioniert ohne zusätzliches Hosting-Paket, ist aber
-                nur ein einfacher clientseitiger Schutz.
+                Zugänge: `open`, `Narren`, `Vorstand`, `Admin`. Diese Variante
+                funktioniert ohne zusätzliches Hosting-Paket, ist aber nur ein
+                einfacher clientseitiger Schutz.
             </div>
         </section>
 

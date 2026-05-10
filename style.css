@@ -557,6 +557,14 @@ button,
     text-align: right;
 }
 
+.footer-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 20px;
+}
+
 .small-footer-link--center {
     text-align: center;
 }
@@ -645,6 +653,11 @@ button,
     color: #fff9f1;
     text-decoration: none;
     font-weight: 700;
+}
+
+.nav-logout {
+    min-width: 180px;
+    padding: 14px 18px;
 }
 
 .page-inner .navbar a {
@@ -795,6 +808,11 @@ button,
 
     .small-footer-link {
         text-align: left;
+    }
+
+    .footer-actions {
+        flex-direction: column;
+        align-items: stretch;
     }
 }
 

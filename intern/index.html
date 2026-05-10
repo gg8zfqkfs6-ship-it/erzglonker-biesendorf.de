@@ -72,7 +72,7 @@
                     <h3>Veranstaltungen</h3>
                     <p>Öffentliche Termine und Hinweise für Gäste und Mitglieder.</p>
                 </a>
-                <a class="quick-link" href="../vorstand/">
+                <a class="quick-link is-hidden" data-min-role="vorstand" href="../vorstand/">
                     <p class="link-kicker">Nur Vorstand</p>
                     <h3>Vorstandsbereich</h3>
                     <p>Separater Bereich mit Vorstandssitzungen und internen Absprachen.</p>
@@ -89,7 +89,8 @@
         <a class="active" href="./">Interner Bereich</a>
         <a href="bildergalerie.html">Bildergalerie</a>
         <a href="../veranstaltungen.html">Veranstaltungen</a>
-        <a href="../vorstand/">Vorstand</a>
+        <a class="is-hidden" data-min-role="vorstand" href="../vorstand/">Vorstand</a>
+        <button type="button" class="secondary-button nav-logout" data-logout-button>Abmelden</button>
     </nav>
     <script src="../auth.js"></script>
 </body>

@@ -33,12 +33,12 @@
                     <h3>Veranstaltungen</h3>
                     <p>Alle Termine und Kampagnenpunkte der Website auf einen Blick.</p>
                 </a>
-                <a class="quick-link" href="mitglieder.html">
-                    <p class="link-kicker">Zugang</p>
+                <a class="quick-link is-hidden" data-min-role="narren" href="intern/">
+                    <p class="link-kicker">Mitglieder</p>
                     <h3>Interner Bereich</h3>
                     <p>Mitgliederbereich mit Galerie und internen Vereinsinfos.</p>
                 </a>
-                <a class="quick-link" href="vorstand/">
+                <a class="quick-link is-hidden" data-min-role="vorstand" href="vorstand/">
                     <p class="link-kicker">Bereich</p>
                     <h3>Vorstand</h3>
                     <p>Vorstandstermine und interne Notizen als Unterseite der Website.</p>
@@ -54,7 +54,8 @@
     <nav class="navbar" aria-label="Hauptnavigation">
         <a class="active" href="index.html">Startseite</a>
         <a href="veranstaltungen.html">Veranstaltungen</a>
-        <a href="mitglieder.html">Mitgliederbereich</a>
+        <a href="mitglieder.html">Zugang</a>
+        <button type="button" class="secondary-button nav-logout" data-logout-button>Abmelden</button>
     </nav>
 
     <script src="script.js"></script>
