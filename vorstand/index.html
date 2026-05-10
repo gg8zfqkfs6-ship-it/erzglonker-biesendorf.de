@@ -9,14 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
 </head>
-<body class="page-inner">
+<body class="page-inner auth-pending">
     <main class="page-shell">
         <section class="page-header">
             <p class="eyebrow">Geschützt nur für Vorstand</p>
             <h1>Vorstandsbereich</h1>
             <p class="lead dark">
-                Dieser Bereich ist separat abgesichert und nur für die Vorstandschaft
-                erreichbar.
+                Dieser Bereich ist nach dem gemeinsamen Website-Login erreichbar und
+                bündelt die Termine der Vorstandschaft.
             </p>
         </section>
 
@@ -63,17 +63,17 @@
         <section class="panel access-panel">
             <div class="area-grid">
                 <a class="quick-link" href="../intern/">
-                    <p class="link-kicker">Mitgliederbereich</p>
+                    <p class="link-kicker">Unterseite</p>
                     <h3>Interner Bereich</h3>
                     <p>Auch der Mitgliederbereich ist von hier aus direkt erreichbar.</p>
                 </a>
                 <a class="quick-link" href="../intern/bildergalerie.html">
-                    <p class="link-kicker">Ordner</p>
+                    <p class="link-kicker">Unterseite</p>
                     <h3>Bildergalerie</h3>
                     <p>Interne Galerie mit den aktuellen Ordnern und Kampagnenbildern.</p>
                 </a>
                 <a class="quick-link" href="../veranstaltungen.html">
-                    <p class="link-kicker">Öffentlich</p>
+                    <p class="link-kicker">Unterseite</p>
                     <h3>Veranstaltungen</h3>
                     <p>Öffentliche Termine der Website ohne Vorstandsschutz.</p>
                 </a>
@@ -91,5 +91,6 @@
         <a href="../veranstaltungen.html">Veranstaltungen</a>
         <a class="active" href="./">Vorstand</a>
     </nav>
+    <script src="../auth.js"></script>
 </body>
 </html>

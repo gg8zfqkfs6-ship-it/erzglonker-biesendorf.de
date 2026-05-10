@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="page-home">
+<body class="page-home auth-pending">
     <div class="background-stage" aria-hidden="true">
         <div class="background-layer is-visible"></div>
         <div class="background-layer"></div>
@@ -21,17 +21,17 @@
             <p class="eyebrow">Willkommen</p>
             <h1>Narrenverein<br>Ezglonker Biesendorf</h1>
             <p class="lead">
-                Öffentliche Termine sind frei sichtbar. Der interne Bereich und der
-                Vorstandsbereich liegen separat hinter einem Server-Passwortschutz.
+                Die komplette Website ist nur nach Eingabe des gemeinsamen Passworts
+                sichtbar. Von hier aus erreichst du alle Bereiche des Vereins.
             </p>
         </section>
 
         <section class="panel intro-panel">
             <div class="area-grid">
                 <a class="quick-link" href="veranstaltungen.html">
-                    <p class="link-kicker">Öffentlich</p>
+                    <p class="link-kicker">Termine</p>
                     <h3>Veranstaltungen</h3>
-                    <p>Alle öffentlichen Termine und Kampagnenpunkte ohne Login.</p>
+                    <p>Alle Termine und Kampagnenpunkte der Website auf einen Blick.</p>
                 </a>
                 <a class="quick-link" href="mitglieder.html">
                     <p class="link-kicker">Zugang</p>
@@ -39,9 +39,9 @@
                     <p>Mitgliederbereich mit Galerie und internen Vereinsinfos.</p>
                 </a>
                 <a class="quick-link" href="vorstand/">
-                    <p class="link-kicker">Geschützt</p>
+                    <p class="link-kicker">Bereich</p>
                     <h3>Vorstand</h3>
-                    <p>Separater Bereich mit Vorstandsterminen und internen Notizen.</p>
+                    <p>Vorstandstermine und interne Notizen als Unterseite der Website.</p>
                 </a>
             </div>
         </section>
@@ -58,5 +58,6 @@
     </nav>
 
     <script src="script.js"></script>
+    <script src="auth.js"></script>
 </body>
 </html>

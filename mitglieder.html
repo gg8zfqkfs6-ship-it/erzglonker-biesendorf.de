@@ -16,39 +16,28 @@
         <div class="background-overlay"></div>
     </div>
 
-    <main class="page-shell">
-        <section class="hero hero-card">
-            <p class="eyebrow">Geschützte Website</p>
-            <h1>Narrenverein<br>Ezglonker Biesendorf</h1>
-            <p class="lead">
-                Die komplette Website ist jetzt serverseitig mit einem gemeinsamen
-                Passwort geschützt. Nach dem Browser-Login sind alle Seiten der
-                Website erreichbar.
+    <main class="login-stage">
+        <section class="panel auth-panel login-modal">
+            <p class="eyebrow dark-eyebrow">Geschützte Website</p>
+            <h1 class="login-title">Narrenverein<br>Ezglonker Biesendorf</h1>
+            <p class="panel-copy">
+                Die komplette Website ist jetzt mit einem gemeinsamen Passwort geschützt.
+                Nach dem Login sind alle Seiten der Website erreichbar.
             </p>
-        </section>
 
-        <section class="panel intro-panel">
-            <div class="area-grid">
-                <a class="quick-link" href="index.html">
-                    <p class="link-kicker">Start</p>
-                    <h3>Website öffnen</h3>
-                    <p>Nach dem Passwort-Popup ist die komplette Website freigeschaltet.</p>
-                </a>
-                <a class="quick-link" href="veranstaltungen.html">
-                    <p class="link-kicker">Termine</p>
-                    <h3>Veranstaltungen</h3>
-                    <p>Öffentliche und interne Seiten liegen nun gemeinsam hinter einem Schutz.</p>
-                </a>
-                <a class="quick-link" href="intern/">
-                    <p class="link-kicker">Bereiche</p>
-                    <h3>Interne Seiten</h3>
-                    <p>Mitglieder- und Vorstandsseiten bleiben als Unterseiten erhalten.</p>
-                </a>
-            </div>
+            <form id="login-form" class="login-form">
+                <label>
+                    Passwort
+                    <input type="password" id="password" autocomplete="current-password" required>
+                </label>
+
+                <button type="submit">Website öffnen</button>
+                <p id="loginMessage" class="login-message" aria-live="polite"></p>
+            </form>
 
             <div class="security-note">
-                Der Browser fragt direkt nach Benutzername und Passwort. Die Prüfung
-                läuft serverseitig über OVH mit `.htaccess` und `.htpasswd`.
+                Diese Variante funktioniert ohne zusätzliches Hosting-Paket, ist aber
+                nur ein einfacher clientseitiger Schutz.
             </div>
         </section>
 
@@ -64,5 +53,6 @@
     </nav>
 
     <script src="script.js"></script>
+    <script src="auth.js"></script>
 </body>
 </html>

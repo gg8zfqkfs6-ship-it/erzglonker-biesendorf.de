@@ -9,22 +9,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="page-inner">
+<body class="page-inner auth-pending">
     <main class="page-shell">
         <section class="page-header">
-            <p class="eyebrow">Öffentlicher Bereich</p>
+            <p class="eyebrow">Terminübersicht</p>
             <h1>Veranstaltungen</h1>
             <p class="lead dark">
-                Diese Übersicht ist frei zugänglich. Interne Mitgliedstermine und
-                Vorstandstermine liegen in den geschützten Bereichen.
+                Nach dem Login stehen hier alle Termine der Website zur Verfügung.
             </p>
         </section>
 
         <section class="panel">
-            <h2>Öffentliche Termine</h2>
+            <h2>Termine</h2>
             <p class="panel-copy">
-                Hier stehen alle Termine, die für Gäste, Freunde und Mitglieder ohne
-                geschützten Zugang sichtbar sein dürfen.
+                Öffentliche Hinweise und die internen Unterseiten bleiben von hier aus
+                schnell erreichbar.
             </p>
 
             <table class="events-table">
@@ -80,18 +79,18 @@
         <section class="panel access-panel">
             <h2>Geschützte Bereiche</h2>
             <p class="panel-copy">
-                Mitglieder und Vorstand nutzen jetzt getrennte Server-Zugänge.
+                Die weiteren Vereinsbereiche sind direkt über die Website erreichbar.
             </p>
             <div class="area-grid">
                 <a class="quick-link" href="intern/">
-                    <p class="link-kicker">Login</p>
+                    <p class="link-kicker">Unterseite</p>
                     <h3>Interner Bereich</h3>
                     <p>Mitgliedertermine, Galerie und interne Vereinsinfos.</p>
                 </a>
                 <a class="quick-link" href="vorstand/">
-                    <p class="link-kicker">Login</p>
+                    <p class="link-kicker">Unterseite</p>
                     <h3>Vorstandsbereich</h3>
-                    <p>Nur für die Vorstandschaft mit separatem Passwortschutz.</p>
+                    <p>Termine und Hinweise für die Vorstandschaft.</p>
                 </a>
             </div>
         </section>
@@ -106,5 +105,6 @@
         <a class="active" href="veranstaltungen.html">Veranstaltungen</a>
         <a href="mitglieder.html">Mitgliederbereich</a>
     </nav>
+    <script src="auth.js"></script>
 </body>
 </html>

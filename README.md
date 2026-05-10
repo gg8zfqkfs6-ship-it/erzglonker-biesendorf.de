@@ -2,25 +2,13 @@
 
 Webseite Erzglonker Biesendorf
 
-## Zugangsmodell ohne Datenbank
+## Zugangsmodell ohne Zusatzhosting
 
-Die komplette Website ist jetzt einheitlich geschützt.
+Die Website nutzt jetzt wieder einen einfachen clientseitigen Passwortschutz.
 
-- die Absicherung liegt auf Wurzelebene in `.htaccess`
-- die Zugangsdaten liegen als Hash in `.htpasswd`
-- alle Seiten der Website werden vor dem Laden durch den Webserver geschützt
+- Login-Seite: `mitglieder.html`
+- Website-Passwort: `1234`
+- nach dem Login werden alle Seiten im Browser freigeschaltet
 
-Die Serverabsicherung läuft über Apache `Basic Auth` mit `.htaccess` und `.htpasswd`.
-Passwörter liegen dabei nicht im Klartext auf dem Server, sondern nur als Hash.
-
-## OVH Deployment
-
-1. Website auf den OVH-Webspace hochladen.
-2. In `.htaccess` die Zeile `AuthUserFile` auf den echten absoluten OVH-Pfad anpassen.
-3. `.htpasswd.example` in eine echte Datei `.htpasswd-erzglonker` umwandeln.
-4. Diese `.htpasswd-erzglonker` außerhalb des öffentlichen Web-Ordners auf OVH ablegen.
-
-Initialer Zugang:
-
-- Benutzer `zugang`
-- Passwort `1234`
+Hinweis: Diese Variante funktioniert ohne zusätzliche OVH-Produkte und ohne Datenbank,
+ist aber kein echter serverseitiger Sicherheitsmechanismus.
