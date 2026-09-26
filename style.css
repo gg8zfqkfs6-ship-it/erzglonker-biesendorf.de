@@ -205,14 +205,13 @@ h3 {
 }
 
 .build-notice {
-    margin: 28px 0 0;
-    padding: 16px 20px;
-    border-left: 5px solid #f7c36e;
-    color: #fff8e9;
-    background: rgba(0, 0, 0, 0.24);
-    font-size: clamp(1.35rem, 3vw, 1.8rem);
+    margin: 0 0 18px;
+    color: #f7c36e;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(2.8rem, 6vw, 5.7rem);
     font-weight: 700;
-    line-height: 1.25;
+    line-height: 0.95;
+    text-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
 }
 
 .page-inner {
