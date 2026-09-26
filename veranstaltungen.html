@@ -9,21 +9,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="page-inner auth-pending">
+<body class="page-inner">
     <main class="page-shell">
         <section class="page-header">
             <p class="eyebrow">Terminübersicht</p>
             <h1>Veranstaltungen</h1>
             <p class="lead dark">
-                Nach dem Login stehen hier alle Termine der Website zur Verfügung.
+                Öffentliche Termine und Hinweise des Vereins auf einen Blick.
             </p>
         </section>
 
         <section class="panel">
             <h2>Termine</h2>
             <p class="panel-copy">
-                Öffentliche Hinweise und die internen Unterseiten bleiben von hier aus
-                schnell erreichbar.
+                Alle öffentlichen Termine des Vereins.
             </p>
 
             <table class="events-table">
@@ -76,25 +75,6 @@
             </table>
         </section>
 
-        <section class="panel access-panel">
-            <h2>Geschützte Bereiche</h2>
-            <p class="panel-copy">
-                Die weiteren Vereinsbereiche sind direkt über die Website erreichbar.
-            </p>
-            <div class="area-grid">
-                <a class="quick-link is-hidden" data-min-role="narren" href="intern/">
-                    <p class="link-kicker">Unterseite</p>
-                    <h3>Interner Bereich</h3>
-                    <p>Mitgliedertermine, Galerie und interne Vereinsinfos.</p>
-                </a>
-                <a class="quick-link is-hidden" data-min-role="vorstand" href="vorstand/">
-                    <p class="link-kicker">Unterseite</p>
-                    <h3>Vorstandsbereich</h3>
-                    <p>Termine und Hinweise für die Vorstandschaft.</p>
-                </a>
-            </div>
-        </section>
-
         <p class="small-footer-link">
             <a href="impressum.html">Impressum</a>
         </p>
@@ -103,8 +83,8 @@
     <nav class="navbar" aria-label="Hauptnavigation">
         <a href="index.html">Startseite</a>
         <a class="active" href="veranstaltungen.html">Veranstaltungen</a>
-        <a href="mitglieder.html">Zugang</a>
-        <button type="button" class="secondary-button nav-logout" data-logout-button>Abmelden</button>
+        <a href="mitglieder.html">Admin</a>
+        <button type="button" class="secondary-button nav-logout is-hidden" data-admin-only data-logout-button>Abmelden</button>
     </nav>
     <script src="auth.js"></script>
 </body>

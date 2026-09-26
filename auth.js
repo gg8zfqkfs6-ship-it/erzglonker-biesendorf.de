@@ -1,23 +1,5 @@
 (() => {
     const ACCOUNTS = {
-        open: {
-            username: "open",
-            password: "open1234",
-            role: "open",
-            label: "Open"
-        },
-        narren: {
-            username: "narren",
-            password: "narren1234",
-            role: "narren",
-            label: "Narren"
-        },
-        vorstand: {
-            username: "vorstand",
-            password: "vorstand1234",
-            role: "vorstand",
-            label: "Vorstand"
-        },
         admin: {
             username: "admin",
             password: "admin1234",
@@ -26,7 +8,6 @@
         }
     };
 
-    const ROLE_ORDER = ["open", "narren", "vorstand", "admin"];
     const STORAGE_KEY = "erzglonker-site-access";
     const pathname = window.location.pathname;
     const currentPage = pathname.split("/").pop() || "index.html";
@@ -35,12 +16,10 @@
     const loginForm = document.getElementById("login-form");
     const loginMessage = document.getElementById("loginMessage");
     const logoutButtons = Array.from(document.querySelectorAll("[data-logout-button]"));
-    const roleElements = Array.from(document.querySelectorAll("[data-min-role]"));
+    const adminElements = Array.from(document.querySelectorAll("[data-admin-only]"));
     const roleBadge = document.getElementById("roleBadge");
 
     const normalizeKey = (value) => String(value || "").trim().toLowerCase();
-    const getRoleRank = (role) => ROLE_ORDER.indexOf(normalizeKey(role));
-
     const getRootPrefix = () => {
         if (pathname.includes("/intern/") || pathname.includes("/vorstand/")) {
             return "../";
@@ -83,35 +62,18 @@
         return session;
     };
 
-    const hasRole = (session, minRole) =>
-        Boolean(session) && getRoleRank(session.role) >= getRoleRank(minRole);
+    const isAdmin = (session) => Boolean(session) && session.role === "admin";
 
-    const getDefaultTarget = (session) => {
-        if (hasRole(session, "vorstand")) {
-            return `${getRootPrefix()}vorstand/`;
-        }
-
-        if (hasRole(session, "narren")) {
-            return `${getRootPrefix()}intern/`;
-        }
-
-        return `${getRootPrefix()}index.html`;
-    };
+    const getDefaultTarget = () => `${getRootPrefix()}intern/`;
 
     const canAccessPath = (session, path) => {
-        if (!session) {
-            return false;
-        }
+        const isProtected = path.includes("/intern/") ||
+            path.includes("/vorstand/") ||
+            path.endsWith("/bildergalerie.html") ||
+            path.endsWith("/intern.html") ||
+            path.endsWith("/admin.html");
 
-        if (path.includes("/vorstand/")) {
-            return hasRole(session, "vorstand");
-        }
-
-        if (path.includes("/intern/") || path.endsWith("/bildergalerie.html") || path.endsWith("/intern.html")) {
-            return hasRole(session, "narren");
-        }
-
-        return true;
+        return !isProtected || isAdmin(session);
     };
 
     const redirectToLogin = () => {
@@ -128,7 +90,7 @@
             return;
         }
 
-        window.location.href = getDefaultTarget(session);
+        window.location.href = getDefaultTarget();
     };
 
     const setMessage = (text, isError = false) => {
@@ -143,13 +105,8 @@
 
     const session = getSession();
 
-    if (!isLoginPage && !session) {
+    if (!isLoginPage && !canAccessPath(session, pathname)) {
         redirectToLogin();
-        return;
-    }
-
-    if (session && !canAccessPath(session, pathname)) {
-        window.location.href = getDefaultTarget(session);
         return;
     }
 
@@ -158,9 +115,8 @@
         return;
     }
 
-    roleElements.forEach((element) => {
-        const minRole = element.dataset.minRole || "open";
-        element.classList.toggle("is-hidden", !hasRole(session, minRole));
+    adminElements.forEach((element) => {
+        element.classList.toggle("is-hidden", !isAdmin(session));
     });
 
     if (roleBadge && session) {

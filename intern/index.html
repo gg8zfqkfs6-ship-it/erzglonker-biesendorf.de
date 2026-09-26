@@ -16,7 +16,7 @@
             <h1>Interner Bereich</h1>
             <p class="lead dark">
                 Hier liegen die vereinsinternen Termine, Bilder und Hinweise für
-                Mitglieder. Die Vorstandschaft kann diesen Bereich ebenfalls öffnen.
+                Mitglieder. Dieser Bereich wird vom Admin verwaltet.
             </p>
         </section>
 
@@ -62,7 +62,7 @@
 
         <section class="panel access-panel">
             <div class="area-grid">
-                <a class="quick-link is-hidden" data-min-role="narren" href="bildergalerie.html">
+                <a class="quick-link is-hidden" data-admin-only href="bildergalerie.html">
                     <p class="link-kicker">Ordner</p>
                     <h3>Bildergalerie</h3>
                     <p>Interne Galerie nach Ordnern sortiert und gut auf dem Handy lesbar.</p>
@@ -72,8 +72,8 @@
                     <h3>Veranstaltungen</h3>
                     <p>Öffentliche Termine und Hinweise für Gäste und Mitglieder.</p>
                 </a>
-                <a class="quick-link is-hidden" data-min-role="vorstand" href="../vorstand/">
-                    <p class="link-kicker">Nur Vorstand</p>
+                <a class="quick-link is-hidden" data-admin-only href="../vorstand/">
+                    <p class="link-kicker">Administration</p>
                     <h3>Vorstandsbereich</h3>
                     <p>Separater Bereich mit Vorstandssitzungen und internen Absprachen.</p>
                 </a>
@@ -87,9 +87,9 @@
 
     <nav class="navbar" aria-label="Hauptnavigation">
         <a class="active" href="./">Interner Bereich</a>
-        <a class="is-hidden" data-min-role="narren" href="bildergalerie.html">Bildergalerie</a>
+        <a class="is-hidden" data-admin-only href="bildergalerie.html">Bildergalerie</a>
         <a href="../veranstaltungen.html">Veranstaltungen</a>
-        <a class="is-hidden" data-min-role="vorstand" href="../vorstand/">Vorstand</a>
+        <a class="is-hidden" data-admin-only href="../vorstand/">Vorstand</a>
         <button type="button" class="secondary-button nav-logout" data-logout-button>Abmelden</button>
     </nav>
     <script src="../auth.js"></script>

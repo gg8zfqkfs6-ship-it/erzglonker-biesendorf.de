@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geschützter Zugang | Narrenverein Ezglonker Biesendorf</title>
+    <title>Admin-Zugang | Narrenverein Ezglonker Biesendorf</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -18,11 +18,11 @@
 
     <main class="login-stage">
         <section class="panel auth-panel login-modal">
-            <p class="eyebrow dark-eyebrow">Geschützte Website</p>
+            <p class="eyebrow dark-eyebrow">Admin-Zugang</p>
             <h1 class="login-title">Narrenverein<br>Ezglonker Biesendorf</h1>
             <p class="panel-copy">
-                Bitte mit deinen Zugangsdaten einloggen, um die geschützten Bereiche
-                der Website zu öffnen.
+                Bitte mit den Admin-Zugangsdaten einloggen, um die internen Bereiche
+                der Website zu verwalten.
             </p>
 
             <form id="login-form" class="login-form">
@@ -36,14 +36,10 @@
                     <input type="password" id="password" autocomplete="current-password" required>
                 </label>
 
-                <button type="submit">Website öffnen</button>
+                <button type="submit">Anmelden</button>
                 <p id="loginMessage" class="login-message" aria-live="polite"></p>
             </form>
 
-            <div class="security-note">
-                Diese Variante funktioniert ohne zusätzliches Hosting-Paket und
-                schützt die Bereiche direkt innerhalb der Website.
-            </div>
         </section>
 
         <p class="small-footer-link small-footer-link--home">
@@ -54,7 +50,7 @@
     <nav class="navbar" aria-label="Hauptnavigation">
         <a href="index.html">Startseite</a>
         <a href="veranstaltungen.html">Veranstaltungen</a>
-        <a class="active" href="mitglieder.html">Zugang</a>
+        <a class="active" href="mitglieder.html">Admin</a>
     </nav>
 
     <script src="script.js"></script>

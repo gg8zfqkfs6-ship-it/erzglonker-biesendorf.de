@@ -12,10 +12,10 @@
 <body class="page-inner auth-pending">
     <main class="page-shell">
         <section class="page-header">
-            <p class="eyebrow">Geschützt nur für Vorstand</p>
+            <p class="eyebrow">Geschützter Admin-Bereich</p>
             <h1>Vorstandsbereich</h1>
             <p class="lead dark">
-                Dieser Bereich ist nach dem gemeinsamen Website-Login erreichbar und
+                Dieser Bereich ist nur nach der Admin-Anmeldung erreichbar und
                 bündelt die Termine der Vorstandschaft.
             </p>
             <p class="panel-copy">Angemeldet als: <strong id="roleBadge">Vorstand</strong></p>
@@ -68,7 +68,7 @@
                     <h3>Interner Bereich</h3>
                     <p>Auch der Mitgliederbereich ist von hier aus direkt erreichbar.</p>
                 </a>
-                <a class="quick-link is-hidden" data-min-role="narren" href="../intern/bildergalerie.html">
+                <a class="quick-link is-hidden" data-admin-only href="../intern/bildergalerie.html">
                     <p class="link-kicker">Unterseite</p>
                     <h3>Bildergalerie</h3>
                     <p>Interne Galerie mit den aktuellen Ordnern und Kampagnenbildern.</p>
@@ -88,7 +88,7 @@
 
     <nav class="navbar" aria-label="Hauptnavigation">
         <a href="../intern/">Interner Bereich</a>
-        <a class="is-hidden" data-min-role="narren" href="../intern/bildergalerie.html">Bildergalerie</a>
+        <a class="is-hidden" data-admin-only href="../intern/bildergalerie.html">Bildergalerie</a>
         <a href="../veranstaltungen.html">Veranstaltungen</a>
         <a class="active" href="./">Vorstand</a>
         <button type="button" class="secondary-button nav-logout" data-logout-button>Abmelden</button>
