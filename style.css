@@ -204,6 +204,17 @@ h3 {
     line-height: 1.65;
 }
 
+.build-notice {
+    margin: 28px 0 0;
+    padding: 16px 20px;
+    border-left: 5px solid #f7c36e;
+    color: #fff8e9;
+    background: rgba(0, 0, 0, 0.24);
+    font-size: clamp(1.35rem, 3vw, 1.8rem);
+    font-weight: 700;
+    line-height: 1.25;
+}
+
 .page-inner {
     color: #2a1913;
     background:
