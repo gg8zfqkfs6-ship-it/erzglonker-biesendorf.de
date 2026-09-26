@@ -206,12 +206,30 @@ h3 {
 
 .build-notice {
     margin: 0 0 18px;
+    padding: 16px 20px;
+    border: 3px solid #f7c36e;
+    background: rgba(0, 0, 0, 0.24);
     color: #f7c36e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 16px;
     font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: clamp(2.8rem, 6vw, 5.7rem);
+    font-size: clamp(2.5rem, 5.5vw, 5.4rem);
     font-weight: 700;
     line-height: 0.95;
     text-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+}
+
+.build-notice__icon {
+    flex: 0 0 auto;
+    font-family: "Source Sans 3", sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.build-notice > span:not(.build-notice__icon) {
+    text-align: center;
 }
 
 .page-inner {
