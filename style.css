@@ -658,6 +658,7 @@ button,
     top: 0;
     z-index: 2;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 12px;
     padding: 20px;
@@ -665,6 +666,12 @@ button,
         linear-gradient(180deg, rgba(22, 11, 9, 0.92), rgba(22, 11, 9, 0.58) 60%, rgba(22, 11, 9, 0)),
         transparent;
     backdrop-filter: blur(10px);
+}
+
+@media (max-width: 1100px) {
+    .page-shell {
+        padding-top: 172px;
+    }
 }
 
 .page-inner .navbar {
@@ -851,7 +858,7 @@ button,
 @media (max-width: 720px) {
     .page-shell {
         width: min(100% - 28px, 1000px);
-        padding: 126px 0 48px;
+        padding: 340px 0 48px;
     }
 
     .hero {
