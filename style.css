@@ -132,6 +132,10 @@ a {
     padding: 24px;
 }
 
+.login-page .navbar {
+    z-index: 4;
+}
+
 .login-modal {
     width: min(540px, 100%);
     background: rgba(255, 252, 245, 0.78);
