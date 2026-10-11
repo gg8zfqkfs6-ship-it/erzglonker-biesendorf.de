@@ -30,7 +30,7 @@
 
     const getStoredSession = () => {
         try {
-            const raw = localStorage.getItem(STORAGE_KEY);
+            const raw = sessionStorage.getItem(STORAGE_KEY);
             return raw ? JSON.parse(raw) : null;
         } catch {
             return null;
@@ -38,7 +38,7 @@
     };
 
     const setStoredSession = (account) => {
-        localStorage.setItem(
+        sessionStorage.setItem(
             STORAGE_KEY,
             JSON.stringify({
                 username: account.username,
@@ -49,8 +49,15 @@
     };
 
     const clearStoredSession = () => {
-        localStorage.removeItem(STORAGE_KEY);
+        sessionStorage.removeItem(STORAGE_KEY);
     };
+
+    // Revoke logins saved by earlier versions of the website.
+    try {
+        localStorage.removeItem(STORAGE_KEY);
+    } catch {
+        // Storage can be unavailable in private browsing modes.
+    }
 
     const getSession = () => {
         const session = getStoredSession();
