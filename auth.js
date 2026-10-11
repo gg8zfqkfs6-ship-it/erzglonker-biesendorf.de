@@ -21,7 +21,7 @@
 
     const normalizeKey = (value) => String(value || "").trim().toLowerCase();
     const getRootPrefix = () => {
-        if (pathname.includes("/intern/") || pathname.includes("/vorstand/")) {
+        if (/\/(intern|vorstand)(?:\/|$)/.test(pathname)) {
             return "../";
         }
 
@@ -55,7 +55,9 @@
     const getSession = () => {
         const session = getStoredSession();
 
-        if (!session || !ACCOUNTS[normalizeKey(session.username)]) {
+        const account = ACCOUNTS[normalizeKey(session?.username)];
+
+        if (!account || session.role !== account.role) {
             return null;
         }
 
@@ -67,8 +69,7 @@
     const getDefaultTarget = () => `${getRootPrefix()}intern/`;
 
     const canAccessPath = (session, path) => {
-        const isProtected = path.includes("/intern/") ||
-            path.includes("/vorstand/") ||
+        const isProtected = /\/(intern|vorstand)(?:\/|$)/.test(path) ||
             path.endsWith("/bildergalerie.html") ||
             path.endsWith("/intern.html") ||
             path.endsWith("/admin.html");
@@ -112,6 +113,12 @@
 
     if (isLoginPage && session) {
         redirectToBestPage(session);
+        return;
+    }
+
+    const redirectTarget = document.body.dataset.redirectTo;
+    if (redirectTarget) {
+        window.location.replace(redirectTarget);
         return;
     }
 
